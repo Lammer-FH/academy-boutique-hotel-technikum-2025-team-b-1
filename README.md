@@ -4,6 +4,8 @@
 ---
 ## Kontext und Einordnung
 
+Gruppe B: Theresa Divotgey, Julia Roll, Thomas Bauer
+
 Unser Team wurde beauftragt eine Buchungsapp zu entwickeln, die Benutzer auf dem Smartphone und dem Desktop verwenden werden.
 Es werden bis zu 100 Besucher pro Tag erwartet, d.h. die bestehende Infrastruktur reicht für die Performance anforderungen aus.
 Besonders Augenmerk, soll auf die moderne und nachhaltige Umsetzung der App gelegt werden, da diese in den kommenden Jahren mit weiteren Features erweitert werden soll.
