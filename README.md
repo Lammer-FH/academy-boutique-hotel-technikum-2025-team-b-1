@@ -1,7 +1,12 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/EdGVZbn5)
+
+
 # Projekt: Hotel Buchungsoberfläche
 
 ---
 ## Kontext und Einordnung
+
+Gruppe B: Theresa Divotgey, Julia Roll, Thomas Bauer
 
 Unser Team wurde beauftragt eine Buchungsapp zu entwickeln, die Benutzer auf dem Smartphone und dem Desktop verwenden werden.
 Es werden bis zu 100 Besucher pro Tag erwartet, d.h. die bestehende Infrastruktur reicht für die Performance anforderungen aus.
