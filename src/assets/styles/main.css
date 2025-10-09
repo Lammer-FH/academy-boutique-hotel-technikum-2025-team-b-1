@@ -1,0 +1,11 @@
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.9;
+    background-color: #fff;
+    color: #5a3d2e;
+}
+
+.btn {
+    border: none;
+    border-radius: 6px;
+}

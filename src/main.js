@@ -1,7 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import '@/assets/styles/main.css';
 
+import router from './router';
 import {createApp} from 'vue'
-import LandingPage from './LandingPage.vue'
+import App from './App.vue'
 
-createApp(LandingPage).mount('#app')
+createApp(App)
+    .use(router)
+    .mount('#app')

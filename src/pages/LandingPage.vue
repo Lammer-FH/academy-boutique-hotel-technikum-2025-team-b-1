@@ -1,18 +1,19 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
   <div id="landingPage">
     <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
       <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center fw-bold" href="LandingPage.vue">
+        <RouterLink class="navbar-brand d-flex align-items-center fw-bold" :to="{ name: 'landingPage' }">
           <img
-              src="@/assets/bilder/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
+              src="@/assets/pictures/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
               alt="Hotel Logo"
               class="me-2"
               id="logo"
           />
-        </a>
+      </RouterLink>
 
         <button
             class="navbar-toggler"
@@ -47,23 +48,23 @@
     <div id="carouselLandingPageMain" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="@/assets/bilder/hotel-fotos/sherwood-exclusive-lara-antalya-photo-6.JPEG" class="d-block w-100"
+          <img src="@/assets/pictures/hotel-fotos/sherwood-exclusive-lara-antalya-photo-6.JPEG" class="d-block w-100"
                alt="hotel">
         </div>
         <div class="carousel-item">
-          <img src="@/assets/bilder/hotel-fotos/Brach_Reception_7_GuillaumedeLaubier-scaled.jpg" class="d-block w-100"
+          <img src="@/assets/pictures/hotel-fotos/Brach_Reception_7_GuillaumedeLaubier-scaled.jpg" class="d-block w-100"
                alt="hotel">
         </div>
         <div class="carousel-item">
-          <img src="@/assets/bilder/hotel-fotos/franv_lume-boutique-hotel_gym-scaled.jpg" class="d-block w-100"
+          <img src="@/assets/pictures/hotel-fotos/franv_lume-boutique-hotel_gym-scaled.jpg" class="d-block w-100"
                alt="hotel">
         </div>
         <div class="carousel-item">
-          <img src="@/assets/bilder/hotel-fotos/luxushotel-5-boutique-hotel-dasposthotel-82716.jpg"
+          <img src="@/assets/pictures/hotel-fotos/luxushotel-5-boutique-hotel-dasposthotel-82716.jpg"
                class="d-block w-100" alt="hotel">
         </div>
         <div class="carousel-item">
-          <img src="@/assets/bilder/hotel-fotos/top_solarium_.jpg" class="d-block w-100" alt="hotel">
+          <img src="@/assets/pictures/hotel-fotos/top_solarium_.jpg" class="d-block w-100" alt="hotel">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselLandingPageMain"
@@ -106,15 +107,15 @@
       <div id="carouselZimmer" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="@/assets/bilder/hotel-zimmer/sherwood-exclusive-lara-antalya-photo-6.JPEG" class="d-block w-100"
+            <img src="@/assets/pictures/hotel-zimmer/sherwood-exclusive-lara-antalya-photo-6.JPEG" class="d-block w-100"
                  alt="hotel-zimmer">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-zimmer/f1f7ddb4-051f-4d8b-9d5c-14891432398a.jpg" class="d-block w-100"
+            <img src="@/assets/pictures/hotel-zimmer/f1f7ddb4-051f-4d8b-9d5c-14891432398a.jpg" class="d-block w-100"
                  alt="hotel-zimmer">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-zimmer/3cef2b65.jpg.avif" class="d-block w-100" alt="hotel-zimmer">
+            <img src="@/assets/pictures/hotel-zimmer/3cef2b65.jpg.avif" class="d-block w-100" alt="hotel-zimmer">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselZimmer" data-bs-slide="prev">
@@ -144,15 +145,15 @@
       <div id="carouselRestaurant" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="@/assets/bilder/hotel-restaurant/Casa-Padrino-Luxus_Sofa-Lounge-Fuer-Grand-Hotels.png"
+            <img src="@/assets/pictures/hotel-restaurant/Casa-Padrino-Luxus_Sofa-Lounge-Fuer-Grand-Hotels.png"
                  class="d-block w-100" alt="hotel-restaurant">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-restaurant/dobedan-exclusive-belek-fransiz-restoran-card-list.jpg"
+            <img src="@/assets/pictures/hotel-restaurant/dobedan-exclusive-belek-fransiz-restoran-card-list.jpg"
                  class="d-block w-100" alt="hotel-restaurant">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-restaurant/dobedan-exclusive-belek-panorama-restoran-slider2.jpg"
+            <img src="@/assets/pictures/hotel-restaurant/dobedan-exclusive-belek-panorama-restoran-slider2.jpg"
                  class="d-block w-100" alt="hotel-restaurant">
           </div>
         </div>
@@ -194,19 +195,19 @@
       <div id="carouselSpa" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="@/assets/bilder/hotel-spa/csm_Spa-Bereich_MatthiasDengler_85_7b56b73679.jpg"
+            <img src="@/assets/pictures/hotel-spa/csm_Spa-Bereich_MatthiasDengler_85_7b56b73679.jpg"
                  class="d-block w-100" alt="hotel-spa">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-spa/severins-alpine-retreat-wellness-spa-header.jpg"
+            <img src="@/assets/pictures/hotel-spa/severins-alpine-retreat-wellness-spa-header.jpg"
                  class="d-block w-100" alt="hotel-spa">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-spa/wellness-knigge.jpg"
+            <img src="@/assets/pictures/hotel-spa/wellness-knigge.jpg"
                  class="d-block w-100" alt="hotel-spa">
           </div>
           <div class="carousel-item">
-            <img src="@/assets/bilder/hotel-spa/franv_lume-boutique-hotel_gym-scaled.jpg"
+            <img src="@/assets/pictures/hotel-spa/franv_lume-boutique-hotel_gym-scaled.jpg"
                  class="d-block w-100" alt="hotel-spa">
           </div>
         </div>
@@ -247,9 +248,9 @@
             E-Mail: info@hotel-technikum.at
           </p>
           <div id="footerLinks" class="mt-3">
-            <a href="/" class="footer-link">Impressum</a>
+            <RouterLink :to="{ name: 'impressum' }">Impressum</RouterLink>
             <span class="mx-2">|</span>
-            <a href="/" class="footer-link">Über uns</a>
+            <a href="" class="footer-link">Über uns</a>
           </div>
         </div>
       </div>
