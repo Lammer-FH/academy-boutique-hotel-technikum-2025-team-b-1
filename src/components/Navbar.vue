@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navBar">
+  <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold" href="#">
-        <img src="@/assets/bilder/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
+        <img src="@/assets/pictures/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
              alt="Logo" id="logo" />
       </a>
 
@@ -35,6 +35,8 @@ const links = [
 <style scoped>
 #navBar {
   background-color: #FFDAD5;
+
+
 }
 #logo {
   height: 60px;

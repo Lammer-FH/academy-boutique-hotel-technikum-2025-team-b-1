@@ -1,44 +1,10 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+
 </script>
 
 <template>
   <div id="landingPage">
-    <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
-      <div class="container-fluid">
-        <RouterLink class="navbar-brand d-flex align-items-center fw-bold" :to="{ name: 'landingPage' }">
-          <img
-              src="@/assets/pictures/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
-              alt="Hotel Logo"
-              class="me-2"
-              id="logo"
-          />
-      </RouterLink>
-
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMenu"
-            aria-controls="navbarMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarMenu">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#">Zimmer</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Restaurant</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Spa</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Über uns</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Anreise & Kontakt</a></li>
-          </ul>
-          <button class="btn ms-lg-3" type="button" id="loginButtonLandingPage">Login</button>
-        </div>
-      </div>
-    </nav>
 
     <header id="header" class="text-center mt-4">
       <h1>BOUTIQUE HOTEL</h1>
@@ -269,7 +235,7 @@ import { RouterLink } from 'vue-router'
 }
 
 #navBar {
-  background-color: #FFDAD5;
+ background-color: #FFDAD5;
 }
 
 
