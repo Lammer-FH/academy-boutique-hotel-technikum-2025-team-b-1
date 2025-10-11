@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <main class="container-fluid p-0">
+    <main class="container-fluid p-3 content">
       <slot />
     </main>
     <Footer />
@@ -12,3 +12,8 @@
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 </script>
+
+<style scoped>
+
+
+</style>

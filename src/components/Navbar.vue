@@ -1,10 +1,11 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">
+      <RouterLink :to="{ name: 'landingPage' }" class="navbar-brand d-flex align-items-center fw-bold">
         <img src="@/assets/pictures/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
              alt="Logo" id="logo" />
-      </a>
+        <span class="ms-2"></span>
+      </RouterLink>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
         <span class="navbar-toggler-icon"></span>
@@ -23,6 +24,8 @@
 </template>
 
 <script setup>
+import LandingPage from "@/pages/LandingPage.vue";
+
 const links = [
   { text: 'Zimmer', href: '#' },
   { text: 'Restaurant', href: '#' },
