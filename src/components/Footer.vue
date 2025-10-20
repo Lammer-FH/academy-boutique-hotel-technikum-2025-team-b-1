@@ -4,11 +4,11 @@
       <h5 class="fw-bold">Kontakt</h5>
       <p>Musterstraße 12<br>12345 Musterstadt<br>Tel: +49 123 456789<br>E-Mail: info@hotel-technikum.at</p>
         <div id="footerLinks" class="mt-3">
-          <RouterLink :to="{ name: 'impressum' }">Impressum</RouterLink>
+          <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>
           <span class="mx-2">|</span>
-          <a href="" class="footer-link">Über uns</a>
+          <RouterLink class="footer-link" :to="{ name: '' }">Über Uns</RouterLink>
         </div>
-    <div class="p-3 border-top">
+    <div class="p-3">
       © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten
     </div>
     </div>
@@ -25,6 +25,16 @@
 }
 
 
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #a86c5b;
+  text-decoration: underline;
+}
+
 #footerLinks {
   font-weight: 500;
 }
@@ -40,3 +50,5 @@
   text-decoration: underline;
 }
 </style>
+<script setup lang="ts">
+</script>
