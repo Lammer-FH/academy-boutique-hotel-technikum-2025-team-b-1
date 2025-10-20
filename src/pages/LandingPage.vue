@@ -75,7 +75,7 @@ const imagesSpa = [
       </div>
 
       <div class="container-fluid text-center" id="containerRestaurant">
-        <h2>Unsere Restaurant</h2>
+        <h2>Unser Restaurant</h2>
         <br>
         <BootstrapCarousel carousel-id="carouselRestaurant" :images="imagesRestaurant"/>
         <br>
@@ -148,7 +148,7 @@ const imagesSpa = [
 }
 
 
-#linkZimmer, #linkSpa {
+#linkZimmer, #linkSpa, #linkRestaurant {
   background-color: #FEF1C8;
 }
 
