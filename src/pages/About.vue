@@ -71,7 +71,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-12 col-lg-6">
-            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-zimmer/sherwood-exclusive-lara-antalya-photo-6.JPEG"
+            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-zimmer/photo-4k-wangen-im-allgaeu-5.JPEG"
                  alt="zimmer">
           </div>
           <div class="col-12 col-lg-6">
@@ -116,7 +116,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-12 col-lg-6">
-            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-restaurant/dobedan-exclusive-belek-fransiz-restoran-card-list.jpg" alt="Restaurant – regional & saisonal" />
+            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-restaurant/Hotel_Galantha_GH100498_small_©Gregor_Hofbauer.jpg" alt="Restaurant – regional & saisonal" />
           </div>
           <div class="col-12 col-lg-6">
             <h2 class="h3 mb-2">Restaurant & Frühstück</h2>
@@ -154,7 +154,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
   color: white;
   background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("@/assets/pictures/hotel-fotos/Brach_Reception_7_GuillaumedeLaubier-scaled.jpg")
+      url("@/assets/pictures/hotel-fotos/Facade BHS.jpg")
       center/cover no-repeat;
 }
 
