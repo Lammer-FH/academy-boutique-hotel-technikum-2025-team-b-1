@@ -1,9 +1,14 @@
 body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.9;
-    background-color: #fff;
+    background-color: #fffaf9;
     color: #5a3d2e;
 }
+
+h1, h2, h3 {
+    color: #5a3d2e;
+}
+
 
 .btn {
     border: none;

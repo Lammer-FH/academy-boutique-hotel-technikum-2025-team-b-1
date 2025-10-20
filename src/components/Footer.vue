@@ -6,9 +6,9 @@
         <div id="footerLinks" class="mt-3">
           <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>
           <span class="mx-2">|</span>
-          <RouterLink class="footer-link" :to="{ name: '' }">Über Uns</RouterLink>
+          <RouterLink class="footer-link" :to="{ name: 'about' }">Über uns</RouterLink>
         </div>
-    <div class="p-3">
+    <div class="p-3 border-top">
       © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten
     </div>
     </div>
@@ -25,24 +25,17 @@
 }
 
 
-.footer-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  color: #a86c5b;
-  text-decoration: underline;
-}
-
 #footerLinks {
   font-weight: 500;
 }
 
 .footer-link {
-  color: #5a3d2e;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+.footer-link,
+.footer-link:visited {
+  color: #5a3d2e;
 }
 
 .footer-link:hover {

@@ -14,7 +14,7 @@
       <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item" v-for="link in links" :key="link.text">
-            <a class="nav-link" :href="link.href">{{ link.text }}</a>
+            <RouterLink class="nav-link" :to="link.to">{{ link.text }}</RouterLink>
           </li>
         </ul>
         <button class="btn ms-lg-3" id="loginButton">Login</button>
@@ -29,7 +29,7 @@ const links = [
   { text: 'Zimmer', href: '#' },
   { text: 'Restaurant', href: '#' },
   { text: 'Spa', href: '#' },
-  { text: 'Über uns', href: '#' },
+  { text: 'Über uns', to: 'about' },
   { text: 'Kontakt', href: '#' },
 ];
 </script>

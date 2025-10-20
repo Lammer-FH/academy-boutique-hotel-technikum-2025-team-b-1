@@ -4,19 +4,9 @@
 
 <script setup>
 import { RouterView } from 'vue-router'
-import Navbar from "@/components/Navbar.vue";
 </script>
 
 <style>
-body {
-  margin: 0;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  background-color: #fffaf9;
-}
-
-h1, h2, h3 {
-  color: #5a3d2e;
-}
 
 button {
   background-color: #FEF1C8;
