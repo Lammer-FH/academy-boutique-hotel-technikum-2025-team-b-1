@@ -1,6 +1,7 @@
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import BootstrapCarousel from "@/components/Carousel.vue";
+import SectionWithCarousel from "@/components/SectionWithCarousel.vue";
 
 const imagesLanding = [
   new URL('@/assets/pictures/hotel-fotos/Facade BHS.jpg', import.meta.url).href,
@@ -32,17 +33,7 @@ const imagesSpa = [
 
 <template>
   <DefaultLayout>
-    <div id="landingPage">
-      <section class="text-center my-5">
-        <h2>Willkommen im Boutique Hotel Technikum</h2>
-        <p>Erleben Sie Stil, Komfort und Wohlfühlatmosphäre...</p>
-      </section>
-      <header id="header" class="text-center mt-4">
-        <h1>BOUTIQUE HOTEL</h1>
-        <h1>Technikum</h1>
-      </header>
-
-      <BootstrapCarousel carousel-id="carouselLandingPageMain" :images="imagesLanding"/>
+    <BootstrapCarousel carousel-id="carouselLandingPageMain" :images="imagesLanding"/>
       <div class="container-fluid text-center" id="containerWelcomeText">
         <h2>Willkommen im Boutique Hotel Technikum</h2>
         <p>Erleben Sie Stil, Komfort und Wohlfühlatmosphäre inmitten moderner Eleganz.<br>Genießen Sie entspannte
@@ -59,70 +50,42 @@ const imagesSpa = [
           uns zu einer echten Auszeit wird.</p>
       </div>
 
-      <div class="container-fluid text-center" id="containerRooms">
-        <h2>Unsere Zimmer</h2>
-        <br>
-        <BootstrapCarousel carousel-id="carouselRooms" :images="imagesRooms"/>
-        <br>
-        <h2>Boutique-Komfort neu definiert</h2>
-        <p>Unsere Zimmer sind der ideale Ort zum Entspannen und Wohlfühlen. Jedes Zimmer wurde mit Liebe zum Detail
-          eingerichtet und verbindet Komfort mit einem klaren, modernen Stil. Ob allein, zu zweit oder mit Familie – bei
-          uns finden Sie den passenden Raum für Ihren Aufenthalt. Hochwertige Materialien, angenehme Farben und
-          durchdachte Ausstattung sorgen dafür, dass Sie sich vom ersten Moment an wohlfühlen. Hier können Sie ankommen,
-          abschalten und einfach die Zeit genießen.</p>
-        <br>
-        <a class="btn ms-lg-3" id="linkZimmer">Zu den Zimmern</a>
-      </div>
+    <SectionWithCarousel
+        section-title="Unsere Zimmer"
+        section-subtitle="Boutique-Komfort neu definiert"
+        section-text="Unsere Zimmer sind der ideale Ort zum Entspannen und Wohlfühlen. Hochwertige Materialien, angenehme Farben und durchdachte Ausstattung sorgen dafür, dass Sie sich vom ersten Moment an wohlfühlen."
+        button-text="Zu den Zimmern"
+        button-link="#"
+        button-id="linkZimmer"
+        :images="imagesRooms"
+        carousel-id="carouselRooms"
+    />
 
-      <div class="container-fluid text-center" id="containerRestaurant">
-        <h2>Unser Restaurant</h2>
-        <br>
-        <BootstrapCarousel carousel-id="carouselRestaurant" :images="imagesRestaurant"/>
-        <br>
-        <h2>Restaurant Lammé</h2>
-        <p>In unserem Restaurant genießen Sie frisch zubereitete Gerichte in entspannter Atmosphäre. Wir legen großen
-          Wert auf regionale und saisonale Zutaten, die mit Sorgfalt und Liebe zum Detail verarbeitet werden. Ob zum
-          Frühstück, Mittag- oder Abendessen – bei uns steht der Geschmack im Mittelpunkt. Lassen Sie sich von unserer
-          Küche mit kreativen, aber ehrlichen Speisen verwöhnen und genießen Sie dazu ausgewählte Getränke in
-          gemütlichem Ambiente. Unser Team sorgt mit freundlichem Service und Leidenschaft dafür, dass jeder Besuch zu
-          einem genussvollen Erlebnis wird.</p>
-        <br>
-        <a class="btn ms-lg-3" id="linkRestaurant">zum Restaurant</a>
-      </div>
+    <SectionWithCarousel
+        section-title="Unser Restaurant"
+        section-subtitle="Restaurant Lammé"
+        section-text="In unserem Restaurant genießen Sie frisch zubereitete Gerichte in entspannter Atmosphäre. Wir legen großen Wert auf regionale und saisonale Zutaten, die mit Sorgfalt verarbeitet werden."
+        button-text="zum Restaurant"
+        button-link="#"
+        button-id="linkRestaurant"
+        :images="imagesRestaurant"
+        carousel-id="carouselRestaurant"
+    />
 
-      <div class="container-fluid text-center" id="containerSpa">
-        <h2>Unser Spa-Bereich</h2>
-        <br>
-        <BootstrapCarousel carousel-id="carouselSpa" :images="imagesSpa"/>
-        <br>
-        <h2>Willkommen in einer Welt der Ruhe und Erneuerung.</h2>
-        <p>Unser Spa ist der perfekte Ort, um Körper und Geist zur Ruhe kommen zu lassen. Hier treffen modernes Design
-          und eine angenehme, warme Atmosphäre aufeinander. Lassen Sie den Alltag für eine Weile hinter sich und
-          genießen Sie entspannte Momente in einer Umgebung aus Licht, Ruhe und Wohlbefinden. Ob bei einer wohltuenden
-          Massage, einer pflegenden Gesichtsbehandlung oder in der Sauna – hier steht Ihr persönliches Wohl im
-          Mittelpunkt. Unsere Spa-Therapeutinnen und -Therapeuten verwenden hochwertige Produkte und gehen individuell
-          auf Ihre Wünsche ein. Abgerundet wird das Erlebnis durch unseren gemütlichen Ruheraum und den Wellnessbereich,
-          der zum Verweilen einlädt.</p>
-        <br>
-        <a class="btn ms-lg-3" id="linkSpa">zum Spa</a>
-      </div>
-
-    </div>
+    <SectionWithCarousel
+        section-title="Unser Spa-Bereich"
+        section-subtitle="Willkommen in einer Welt der Ruhe und Erneuerung."
+        section-text="Unser Spa ist der perfekte Ort, um Körper und Geist zur Ruhe kommen zu lassen. Hier treffen modernes Design und eine angenehme, warme Atmosphäre aufeinander. Lassen Sie den Alltag für eine Weile hinter sich und genießen Sie entspannte Momente in einer Umgebung aus Licht, Ruhe und Wohlbefinden. Ob bei einer wohltuenden Massage, einer pflegenden Gesichtsbehandlung oder in der Sauna – hier steht Ihr persönliches Wohl im Mittelpunkt. Unsere Spa-Therapeutinnen und -Therapeuten verwenden hochwertige Produkte und gehen individuell auf Ihre Wünsche ein. Abgerundet wird das Erlebnis durch unseren gemütlichen Ruheraum und den Wellnessbereich, der zum Verweilen einlädt."
+        button-text="zum Spa"
+        button-link="#"
+        button-id="linkSpa"
+        :images="imagesSpa"
+        carousel-id="carouselSpa"
+    />
   </DefaultLayout>
 </template>
 
 <style scoped>
-#landingPage {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.9;
-}
-
-#header {
-  font-weight: bold;
-  font-size: 2rem;
-  color: #5a3d2e;
-}
-
 #containerWelcomeText {
   padding: 30px;
   max-width: 1200px;
@@ -140,6 +103,8 @@ const imagesSpa = [
   border-bottom: 3px solid #FEF1C8;
   padding: 30px;
   max-width: 1200px;
+  margin: 50px auto;
+  text-align: center;
 }
 
 #carouselLandingPageMain img, #carouselZimmer img, #carouselRestaurant img, #carouselSpa img {
@@ -147,26 +112,4 @@ const imagesSpa = [
   object-fit: cover;
 }
 
-
-#linkZimmer, #linkSpa, #linkRestaurant {
-  background-color: #FEF1C8;
-}
-
-#containerRooms, #containerRestaurant, #containerSpa {
-  padding: 30px;
-  max-width: 1200px;
-  margin-bottom: 50px;
-  text-align: center;
-  transition: background-color 0.4s ease, transform 0.3s ease;
-}
-
-#containerRooms:hover, #containerRestaurant:hover, #containerSpa:hover {
-  background-color: #F9E6E4;
-  border-radius: 30px;
-  transform: scale(1.02);
-}
-
-#containerRooms {
-  margin-top: 20px;
-}
 </style>
