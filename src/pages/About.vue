@@ -1,5 +1,8 @@
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import SplitSection from "@/components/SplitSection.vue";
+const imgTeam = new URL('@/assets/pictures/hotel-lobby/helena-lopes-yIcm3DWRz-c-unsplash.jpg', import.meta.url).href;
+const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-Bed-Overview.4x3.jpg.webp', import.meta.url).href;
 </script>
 
 <template>
@@ -13,10 +16,6 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
             <p class="lead mb-4">
               Wiener Charme trifft modernes Boutique-Design: persönlich, nachhaltig und mit viel Liebe zum Detail.
             </p>
-            <div class="d-flex gap-2 flex-wrap">
-              <router-link to="/rooms" class="btn btn-light btn-lg">Zimmer ansehen</router-link>
-              <router-link to="/impressum" class="btn btn-outline-light btn-lg">Impressum</router-link>
-            </div>
           </div>
         </div>
       </div>
@@ -50,7 +49,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h3 class="h5 card-title">Persönlicher Service</h3>
-                <p class="card-text">Kleines Team, kurze Wege: Wir sind ehrlich, herzlich und jederzeit für Sie da.</p>
+                <p class="card-text">Kleines Team, kurze Wege: Wir sind ehrlich, herzlich und rund um die Uhr für Sie da.</p>
               </div>
             </div>
           </div>
@@ -58,7 +57,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h3 class="h5 card-title">Beste Lage</h3>
-                <p class="card-text">Zentral & ruhig: Unser Hotel besticht mit der Besten Lage für Kultur, Business und Stadtentdeckungen.</p>
+                <p class="card-text">Zentral & ruhig: Unser Hotel besticht mit der Besten Lage für Kultur, Business und Stadtentdeckungen und ist dennoch in einer ruhigen Lage.</p>
               </div>
             </div>
           </div>
@@ -66,83 +65,38 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
       </div>
     </section>
 
-    <!-- ROOMS (10 Zimmer) -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-12 col-lg-6">
-            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-zimmer/photo-4k-wangen-im-allgaeu-5.JPEG"
-                 alt="zimmer">
-          </div>
-          <div class="col-12 col-lg-6">
-            <h2 class="h3 mb-2">Unsere Zimmer</h2>
-            <p class="text-muted">
-              In unseren insgesamt <strong>10 liebevoll gestalteten Zimmern</strong> trifft modernes Design auf Wiener Gemütlichkeit.
-              Ob gemütliches <strong>Einzelzimmer</strong>, stilvolles <strong>Doppelzimmer</strong>,
-              großzügige <strong>Familien-Suite</strong> oder romantische <strong>Honeymoon Suite</strong> –
-              jedes unserer Zimmer wurde mit viel Liebe zum Detail eingerichtet.
-            </p>
-            <p>
-              Alle Räume bieten hohen Komfort, darunter moderne Bäder, schnelles WLAN, Klimaanlage, TV und optional Frühstück im Haus.
-              In den oberen Etagen genießen Sie einen besonders schönen <strong>Blick über Wien</strong>,
-              während unsere <strong>barrierefreien Zimmer</strong> im Erdgeschoss höchsten Komfort und Zugänglichkeit garantieren.
-            </p>
-            <router-link to="/rooms" class="btn btn-primary">Alle Zimmer ansehen</router-link>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="py-5 bg-light border-top">
-      <div class="container">
-        <div class="row align-items-center g-4 flex-lg-row-reverse">
-          <div class="col-12 col-lg-6">
-            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-spa/csm_Spa-Bereich_MatthiasDengler_85_7b56b73679.jpg" alt="spa" />
-          </div>
-          <div class="col-12 col-lg-6">
-            <h2 class="h3 mb-2">Unser Spa</h2>
-            <p class="text-muted">
-              Für ein Boutiquehotel unserer Größe setzen wir auf Ruhe statt Trubel: kompakte
-              <strong>Finnische Sauna</strong>, ein gemütlicher <strong>Ruhebereich</strong> mit
-              Kräutertee & Infused Water, <strong>2 Behandlungsräume</strong> für Massagen (auf Anfrage) sowie
-              <strong>Duschen & frische Handtücher</strong>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="py-5">
-      <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-12 col-lg-6">
-            <img class="img-fluid rounded-4 shadow" src="@/assets/pictures/hotel-restaurant/Hotel_Galantha_GH100498_small_©Gregor_Hofbauer.jpg" alt="Restaurant – regional & saisonal" />
-          </div>
-          <div class="col-12 col-lg-6">
-            <h2 class="h3 mb-2">Restaurant & Frühstück</h2>
-            <p class="text-muted">
-              Saisonale Küche mit Zutaten aus der Region – unkompliziert, frisch, ehrlich. Morgens wartet ein liebevoll
-              zusammengestelltes Frühstück, tagsüber kleine, wechselnde Gerichte und am Abend ausgewählte Klassiker.
-            </p>
-            <router-link to="/impressum" class="btn btn-outline-primary">Kontakt & Info</router-link>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SplitSection
+        :img="imgTeam"
+        title="Das Team hinter dem Boutique Hotel Technikum"
+        :text-muted="`Das Boutique Hotel Technikum wurde von Thomas Bauer, Theresa Divotgey und Julia Roll gegründet – drei kreativen Köpfen, die ihre Leidenschaft für Design und Gastfreundschaft teilen.`"
+        :bg="'#f8f9fa'"
+    >
+      <p>
+        Gemeinsam haben sie ein Hotel geschaffen, das modernes Boutique-Ambiente mit Wiener Charme vereint.
+        Ihr Ziel: ein Ort, an dem sich Stil und Herzlichkeit begegnen. Das haben sie im Boutiquehotel Technikum mit viel Liebe zum Detail,
+        nachhaltigem Denken und einem klaren Gespür für Atmosphäre vereint.
+      </p>
+      <p>
+        Was als gemeinsames Hirngespinst begann, wurde zu einer Vision:
+        ein Haus, das nicht nur zum Übernachten, sondern zum Wohlfühlen, Entspannen und Verweilen einlädt.
+      </p>
+    </SplitSection>
 
-    <section class="py-5 bg-primary text-white">
-      <div class="container">
-        <div class="row align-items-center g-3">
-          <div class="col-12 col-lg-8">
-            <h2 class="h3 mb-2">Bereit für deinen Aufenthalt?</h2>
-            <p class="mb-0">Finde dein Lieblingszimmer und buche in wenigen Schritten.</p>
-          </div>
-          <div class="col-12 col-lg-4 text-lg-end">
-            <router-link class="btn btn-light btn-lg" to="/rooms">Jetzt Zimmer wählen</router-link>
-          </div>
-        </div>
-      </div>
-    </section>
+
+    <SplitSection
+        :img="imgBooking"
+        :reverse="true"
+        :bg="'#FFDAD5'"
+        title="Bereit für deinen Aufenthalt?"
+    >
+      <p class="mb-4">
+        Finde dein Lieblingszimmer und buche in wenigen Schritten – mit nur einem Klick bist du deinem
+        nächsten Wohlfühlmoment ein Stück näher.
+      </p>
+      <router-link class="btn btn-light btn-lg" to="/rooms">Jetzt Zimmer wählen</router-link>
+    </SplitSection>
   </DefaultLayout>
 </template>
 
@@ -154,7 +108,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
   color: white;
   background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("@/assets/pictures/hotel-fotos/Facade BHS.jpg")
+      url("@/assets/pictures/hotel-fotos/726816457.jpg")
       center/cover no-repeat;
 }
 
@@ -164,36 +118,10 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
   background: rgba(0, 0, 0, 0.25);
 }
 
-.btn-primary,
-.bg-primary{
-  background-color: #FFDAD5 !important;
-  border-color: #FFDAD5 !important;
-  color: #5a3d2e !important;
-}
 
-.btn-primary:hover {
-  background-color: #fbc7c0 !important;
-  border-color: #fbc7c0 !important;
-}
-
-
-.btn-outline-primary {
-  color: #5a3d2e !important;
-  border-color: #FFDAD5 !important;
-}
-
-.btn-outline-primary:hover {
-  background-color: #FFDAD5 !important;
-  color: #5a3d2e !important;
-}
-
-.bg-primary {
-  background-color: #FFDAD5 !important;
-  color: #5a3d2e !important;
-}
-
-.display-4{
+.display-4 {
   color: #FFDAD5 !important;
 }
-
 </style>
+
+
