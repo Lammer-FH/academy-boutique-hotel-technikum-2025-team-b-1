@@ -2,9 +2,14 @@
   <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
     <div class="container-fluid">
       <RouterLink :to="{ name: 'landingPage' }" class="navbar-brand d-flex align-items-center fw-bold">
-        <img src="@/assets/pictures/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
-             alt="Logo" id="logo" />
+        <img
+            src="@/assets/pictures/logo/editable-hotel-logo-vector-business-corporate-identity-with-boutique-hotels-resort-message/rm330-pa-logo2-11.jpg"
+            alt="Logo" id="logo"/>
         <span class="ms-2"></span>
+      </RouterLink>
+
+      <RouterLink :to="{ name: 'landingPage' }" class="navbar-center no-underline">
+        Boutique Hotel Technikum
       </RouterLink>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
@@ -26,24 +31,43 @@
 <script setup>
 
 const links = [
-  { text: 'Zimmer', href: '#' },
-  { text: 'Restaurant', href: '#' },
-  { text: 'Spa', href: '#' },
-  { text: 'Über uns', to: 'about' },
-  { text: 'Kontakt', href: '#' },
+  {text: 'Zimmer', href: '#'},
+  {text: 'Restaurant', href: '#'},
+  {text: 'Spa', href: '#'},
+  {text: 'Über uns', to: 'about'},
+  {text: 'Kontakt', href: '#'},
 ];
 </script>
 
 <style scoped>
+
+.no-underline {
+  text-decoration: none;
+  color: #5a3d2e;
+}
+
+.no-underline:hover {
+  text-decoration: none;
+}
+
 #navBar {
   background-color: #FFDAD5;
-
-
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
+
 #logo {
   height: 60px;
   border-radius: 20%;
 }
+
+.navbar-center {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #5a3d2e;
+}
+
 #loginButton {
   background-color: #FEF1C8;
 }
