@@ -7,8 +7,8 @@
           <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>
           <span class="mx-2">|</span>
           <RouterLink class="footer-link" :to="{ name: 'about' }">Über uns</RouterLink>
-        </div>
-    <div class="p-3 border-top">
+          </div>
+    <div class="p-3">
       © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten
     </div>
     </div>
