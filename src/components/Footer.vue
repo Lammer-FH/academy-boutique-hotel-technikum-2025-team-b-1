@@ -1,18 +1,29 @@
 <template>
-  <footer id="footer" class="text-center">
-    <div class="container py-3">
-      <h5 class="fw-bold">Kontakt</h5>
-      <p>Musterstraße 12<br>12345 Musterstadt<br>Tel: +49 123 456789<br>E-Mail: info@hotel-technikum.at</p>
-        <div id="footerLinks" class="mt-3">
+  <b-container fluid id="footer" class="text-center">
+      <b-card-title class="fw-bold mb-3">Kontakt</b-card-title>
+
+      <b-card-text>
+        Musterstraße 12<br />
+        12345 Musterstadt<br />
+        Tel: +49 123 456789<br />
+        E-Mail: info@hotel-technikum.at
+      </b-card-text>
+
+      <b-row id="footerLinks" class="mt-3 justify-content-center">
+        <b-col cols="auto">
           <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>
-          <span class="mx-2">|</span>
+        </b-col>
+        <b-col cols="auto">|</b-col>
+        <b-col cols="auto">
           <RouterLink class="footer-link" :to="{ name: 'about' }">Über uns</RouterLink>
-          </div>
-    <div class="p-3">
-      © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten
-    </div>
-    </div>
-  </footer>
+        </b-col>
+      </b-row>
+
+
+      <b-card-text class="p-3 mt-3 border-top">
+        © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten
+      </b-card-text>
+  </b-container>
 </template>
 
 <style scoped>
@@ -33,6 +44,7 @@
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 .footer-link,
 .footer-link:visited {
   color: #5a3d2e;
@@ -44,4 +56,5 @@
 }
 </style>
 <script setup lang="ts">
+import {BContainer} from "bootstrap-vue-3";
 </script>
