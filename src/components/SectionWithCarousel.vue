@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { BContainer, BButton } from "bootstrap-vue-3";
+import { BContainer, BButton } from "bootstrap-vue-next";
 import BootstrapCarousel from "@/components/Carousel.vue";
 
 defineProps({
