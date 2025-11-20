@@ -13,7 +13,7 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-import {BContainer} from "bootstrap-vue-3";
+import {BContainer} from "bootstrap-vue-next";
 </script>
 
 <style scoped>

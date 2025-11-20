@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import {BCarousel,BCarouselSlide} from 'bootstrap-vue-next/components/BCarousel'
+import {BCarousel,BCarouselSlide} from 'bootstrap-vue-next'
 defineProps({
   carouselId: { type: String, required: true },
   images: { type: Array, required: true }

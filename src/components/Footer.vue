@@ -56,5 +56,5 @@
 }
 </style>
 <script setup lang="ts">
-import {BContainer} from "bootstrap-vue-3";
+import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
 </script>
