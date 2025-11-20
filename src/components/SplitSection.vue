@@ -3,7 +3,7 @@ const props = defineProps({
   title: { type: String, required: true },
   textMuted: { type: String, default: "" },
   img: { type: String, required: true },
-  reverse: { type: Boolean, default: false },//Anmerkung: bild rechts = true, links = false
+  reverse: { type: Boolean, default: false },
   bg: { type: String, default: "transparent" },
 });
 </script>

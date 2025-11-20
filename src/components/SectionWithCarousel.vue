@@ -1,17 +1,29 @@
 <template>
-  <div class="container-fluid text-center section-with-carousel">
+  <BContainer fluid class="text-center section-with-carousel">
+
     <h2>{{ sectionTitle }}</h2>
-    <br>
-    <BootstrapCarousel :carousel-id="carouselId" :images="images" />
-    <br>
+
+    <div class="my-4">
+      <BootstrapCarousel :carousel-id="carouselId" :images="images" />
+    </div>
+
     <h2>{{ sectionSubtitle }}</h2>
     <p>{{ sectionText }}</p>
-    <br>
-    <a class="btn ms-lg-3" :id="buttonId" :href="buttonLink">{{ buttonText }}</a>
-  </div>
+
+    <BButton
+        :id="buttonId"
+        :href="buttonLink"
+        class="mt-3"
+        variant="warning"
+    >
+      {{ buttonText }}
+    </BButton>
+
+  </BContainer>
 </template>
 
 <script setup>
+import { BContainer, BButton } from "bootstrap-vue-3";
 import BootstrapCarousel from "@/components/Carousel.vue";
 
 defineProps({
@@ -32,6 +44,7 @@ defineProps({
   max-width: 1200px;
   margin-bottom: 50px;
   text-align: center;
+
   transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
@@ -41,10 +54,12 @@ defineProps({
   transform: scale(1.02);
 }
 
+
 .section-with-carousel .btn {
   background-color: #FEF1C8;
   color: #000;
   border: none;
+  font-weight: 500;
 }
 
 .section-with-carousel .btn:hover {

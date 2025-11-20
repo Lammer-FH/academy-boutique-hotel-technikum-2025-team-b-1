@@ -3,16 +3,16 @@ import {defineStore} from "pinia";
 
 export const useRoomStore = defineStore("roomStore", {
     actions: {
-        async checkAvailability(roomId,fromDate,toDate) {
+        async checkAvailability(roomId, arrivalDate, depatureDate) {
             try {
-                const response = await axios.get('https://boutique-hotel.helmuth-lammer.at/api/v1/room/${roomId}/from/${fromDate}/to/${toDate}');
+                const response = await axios.get(`https://boutique-hotel.helmuth-lammer.at/api/v1/room/$\{roomId}/from/${arrivalDate}}/to/${depatureDate}`);
 
                 if (response.status === 200) {
                     return true;
                 }
                 return false;
-            }catch(err) {
-                if (err.response){
+            } catch (err) {
+                if (err.response) {
                     if (err.response.status === 404) {
                         return false;
                     }
