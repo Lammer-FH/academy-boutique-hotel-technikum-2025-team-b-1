@@ -1,9 +1,10 @@
 <template>
-  <RouterView />
+  <BApp><RouterView /></BApp>
 </template>
 
 <script setup>
 import { RouterView } from 'vue-router'
+import {BApp} from 'bootstrap-vue-next'
 </script>
 
 <style>
