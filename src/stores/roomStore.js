@@ -5,7 +5,7 @@ export const useRoomStore = defineStore("roomStore", {
     actions: {
         async checkAvailability(roomId, arrivalDate, depatureDate) {
             try {
-                const response = await axios.get(`https://boutique-hotel.helmuth-lammer.at/api/v1/room/${roomId}/from/${arrivalDate}}/to/${depatureDate}`);
+                const response = await axios.get(`https://boutique-hotel.helmuth-lammer.at/api/v1/room/${roomId}/from/${arrivalDate}/to/${depatureDate}`);
 
                 if (response.status === 200) {
                     return true;
