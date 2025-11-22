@@ -1,55 +1,50 @@
 <template>
-  <div class="d-flex gap-2 flex-wrap">
-    <b-tooltip
-        v-for="(available, key) in extras"
-        v-if="available"
+  <div class="d-flex gap-3">
+    <div
+        v-for="[[key, value]] in extras.map(Object.entries).filter(([[key, value]])=>value===1)"
         :key="key"
-        :title="extraLabel(key)"
-        placement="top"
+        class="text-center"
     >
-      <b-icon :icon="iconMap[key]" font-scale="1.5" />
-    </b-tooltip>
+      <IBiTv
+          v-if="key==='television'"
+          :id="key"
+          class="me-2"
+      />
+      <BTooltip :target="key">
+        {{labelMap[key]}}
+      </BTooltip>
+    </div>
   </div>
 </template>
 
-<script>
-import { BIcon, BTooltip } from 'bootstrap-vue-next';
+<script setup>
+import {BTooltip} from 'bootstrap-vue-next';
+import { computed } from 'vue';
 
-export default {
-  name: 'RoomExtras',
-  components: { BIcon, BTooltip },
-  props: {
-    extras: {
-      type: Object,
-      required: true,
-    },
+// Props
+const props = defineProps({
+  extras: {
+    type: Object,
+    required: true,
   },
-  data() {
-    return {
-      iconMap: {
-        bathRoom: 'bathtub',
-        minibar: 'cup-straw',
-        television: 'tv',
-        aircondition: 'snow',
-      },
-      labelMap: {
-        bathRoom: 'Bad',
-        minibar: 'Minibar',
-        television: 'TV',
-        aircondition: 'Klimaanlage',
-      },
-    };
-  },
-  methods: {
-    extraLabel(key) {
-      return this.labelMap[key] || key;
-    },
-  },
+});
+
+// Icon + Label Zuordnung
+const iconMap = {
+  bathRoom: 'IBWater',
+  minibar: 'cup-straw',
+  television: 'IBTv',
+  aircondition: 'snow',
+};
+
+const labelMap = {
+  bathRoom: 'Bad',
+  minibar: 'Minibar',
+  television: 'TV',
+  aircondition: 'Klimaanlage',
 };
 </script>
 
 <style scoped>
-div > .b-icon {
-  cursor: default;
-}
+/* etwas Abstand, falls nötig */
 </style>

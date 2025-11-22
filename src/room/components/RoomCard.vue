@@ -1,22 +1,5 @@
-const rooms = [
-{
-id": 1,
-"roomNumber":  11,
-"roomName": "Junior Suite",
-"beds": 3,
-"pricePerNight": 120,
-"extras": {
-"bathRoom": true,
-"minibar": true,
-"television": true,
-"aircondition": true
-}
-
-rooms
-
 <template>
   <b-card class="mb-4 shadow-sm room-card">
-    <!-- Zimmerbild -->
     <b-card-img :src="roomImage" :alt="room.roomName" top />
 
     <b-card-body>
@@ -31,7 +14,6 @@ rooms
         </b-col>
       </b-row>
 
-      <!-- Extras -->
       <RoomExtras :extras="room.extras" />
     </b-card-body>
   </b-card>

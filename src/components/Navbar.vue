@@ -31,7 +31,7 @@
 <script setup>
 
 const links = [
-  {text: 'Zimmer', href: '#'},
+  {text: 'Zimmer', to: 'zimmer'},
   {text: 'Restaurant', href: '#'},
   {text: 'Spa', href: '#'},
   {text: 'Über uns', to: 'about'},
