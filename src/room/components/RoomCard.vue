@@ -1,66 +1,45 @@
 <template>
-  <b-card class="mb-4 shadow-sm room-card">
-    <b-card-img :src="roomImage" :alt="room.roomName" top />
+  <b-card
+    :title="room.name"
+    :img-src="room.image?.src || 'https://picsum.photos/800/800/?blur'"
+    :img-alt="room.image?.alt"
+    img-top
+    class="room-card shadow-sm"
+  >
+    <b-row class="mb-4">
+      <b-col>
+        <small class="text-muted d-block">
+          Zimmer {{ room.number || "–" }} – {{ room.beds }} Betten
+        </small>
+      </b-col>
+      <b-col cols="auto">
+        <span class="text fw-bold" id="room-price">
+          {{ room.pricePerNight }} € / Nacht
+        </span>
+      </b-col>
+    </b-row>
 
-    <b-card-body>
-      <!-- Zimmernummer & Preis -->
-      <b-row class="mb-2 align-items-center">
-        <b-col>
-          <b-card-title class="mb-0">{{ room.roomName }}</b-card-title>
-          <small class="text-muted">Zimmer {{ room.roomNumber }} – {{ room.beds }} Betten</small>
-        </b-col>
-        <b-col cols="auto">
-          <span class="text-primary fw-bold">{{ room.pricePerNight }} € / Nacht</span>
-        </b-col>
-      </b-row>
-
-      <RoomExtras :extras="room.extras" />
-    </b-card-body>
+    <RoomExtras :extras="room.extras" />
   </b-card>
 </template>
 
-<script>
-import { BCard, BCardBody, BCardImg, BCardTitle, BRow, BCol } from 'bootstrap-vue-next';
-import RoomExtras from './RoomExtras.vue';
+<script setup>
+import { BCard, BRow, BCol } from "bootstrap-vue-next";
+import RoomExtras from "./RoomExtras.vue";
 
-export default {
-  name: 'RoomCard',
-  components: {
-    BCard,
-    BCardBody,
-    BCardImg,
-    BCardTitle,
-    BRow,
-    BCol,
-    RoomExtras,
+const props = defineProps({
+  room: {
+    type: Object,
+    required: true,
   },
-  props: {
-    room: {
-      type: Object,
-      required: true,
-      // Beispielstruktur siehe API
-      // {
-      //   id: 1,
-      //   roomNumber: 11,
-      //   roomName: "Junior Suite",
-      //   beds: 3,
-      //   pricePerNight: 120,
-      //   extras: { bathRoom: true, minibar: true, television: true, aircondition: true }
-      // }
-    },
-  },
-  computed: {
-    roomImage() {
-      return `/images/rooms/${this.room.id}.jpg`;
-    },
-  },
-};
+});
 </script>
 
-<style scoped>
+<style>
 .room-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* Einheitliche Bildhöhe */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+
 }
 </style>

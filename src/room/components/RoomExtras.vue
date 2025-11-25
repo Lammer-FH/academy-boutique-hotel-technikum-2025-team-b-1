@@ -1,50 +1,41 @@
 <template>
-  <div class="d-flex gap-3">
+  <div class="d-flex flex-wrap gap-2 align-items-center">
     <div
-        v-for="[[key, value]] in extras.map(Object.entries).filter(([[key, value]])=>value===1)"
-        :key="key"
-        class="text-center"
+      v-for="extra in extras"
+      :key="extra.id"
+      class="d-flex align-items-center gap-2 text-muted"
     >
-      <IBiTv
-          v-if="key==='television'"
-          :id="key"
-          class="me-2"
-      />
-      <BTooltip :target="key">
-        {{labelMap[key]}}
-      </BTooltip>
+      <component :is="iconMap[extra.type]" class="icon" />
+      <span class="small">{{ extra.label }}</span>
     </div>
   </div>
 </template>
 
 <script setup>
-import {BTooltip} from 'bootstrap-vue-next';
-import { computed } from 'vue';
+import IBiWater from "~icons/bi/water";
+import IBiCupStraw from "~icons/bi/cup-straw";
+import IBiTv from "~icons/bi/tv";
+import IBiDoorOpen from "~icons/bi/door-open";
+import IBiSnow from "~icons/bi/snow";
+import IBiWifi from "~icons/bi/wifi";
+import IBiCupHot from "~icons/bi/cup-hot";
+import IBiPersonWheelchair from "~icons/bi/person-wheelchair";
 
-// Props
-const props = defineProps({
+defineProps({
   extras: {
-    type: Object,
-    required: true,
+    type: Array,
+    default: () => [],
   },
 });
 
-// Icon + Label Zuordnung
 const iconMap = {
-  bathRoom: 'IBWater',
-  minibar: 'cup-straw',
-  television: 'IBTv',
-  aircondition: 'snow',
-};
-
-const labelMap = {
-  bathRoom: 'Bad',
-  minibar: 'Minibar',
-  television: 'TV',
-  aircondition: 'Klimaanlage',
+  bathroom: IBiWater,
+  minibar: IBiCupStraw,
+  television: IBiTv,
+  livingroom: IBiDoorOpen,
+  aircondition: IBiSnow,
+  wifi: IBiWifi,
+  breakfast: IBiCupHot,
+  "handicapped accessible": IBiPersonWheelchair,
 };
 </script>
-
-<style scoped>
-/* etwas Abstand, falls nötig */
-</style>
