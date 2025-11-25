@@ -54,7 +54,7 @@ import {
   BContainer,
   BCollapse,
   BButton
-} from "bootstrap-vue";
+} from "bootstrap-vue-next";
 
 const links = [
   { text: "Zimmer", to: "#" },
