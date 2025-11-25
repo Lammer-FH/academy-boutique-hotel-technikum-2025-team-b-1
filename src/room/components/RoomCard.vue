@@ -26,6 +26,7 @@
 <script setup>
 import { BCard, BRow, BCol } from "bootstrap-vue-next";
 import RoomExtras from "./RoomExtras.vue";
+//import {RoomAvailabilityCard} from "@/room/components/RoomAvailabilityCard.vue";
 
 const props = defineProps({
   room: {

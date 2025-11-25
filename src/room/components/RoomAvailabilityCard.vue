@@ -1,6 +1,7 @@
 <script setup>
 import {useRoomStore} from "@/stores/roomStore";
 
+
 const props = defineProps({
   roomId: {
     type: Number,
