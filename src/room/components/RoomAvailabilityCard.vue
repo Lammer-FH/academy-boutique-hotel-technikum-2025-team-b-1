@@ -36,8 +36,7 @@ const check = async () => {
 }
 
 
-
-import {BCard} from "bootstrap-vue-next";
+import {BButton, BCard} from "bootstrap-vue-next";
 import {ref} from "vue";
 </script>
 
