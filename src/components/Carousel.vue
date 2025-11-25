@@ -4,7 +4,7 @@
       controls
       indicators
       background="#000"
-      class="mb-4"
+      class="carousel mb-4"
   >
     <BCarouselSlide
         v-for="(img, index) in images"
@@ -21,5 +21,13 @@ defineProps({
   images: { type: Array, required: true }
 });
 </script>
+
+
+<style>
+.carousel img {
+  height: 400px;
+  object-fit: cover;
+}
+</style>
 
 
