@@ -3,6 +3,7 @@ import Impressum from "@/pages/Impressum.vue";
 import LandingPage from "@/pages/LandingPage.vue";
 import About from "@/pages/About.vue";
 import RoomOverview from "@/room/pages/RoomOverview.vue";
+import RoomDetails from "@/room/pages/RoomDetails.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/zimmer',
       name: 'rooms',
       component: RoomOverview,
+    },
+    {
+      path: '/zimmer/:id',
+      name: 'room',
+      component: RoomDetails,
     }
   ],
 })

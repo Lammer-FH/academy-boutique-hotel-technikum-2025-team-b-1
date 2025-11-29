@@ -20,11 +20,12 @@
     </b-row>
 
     <RoomExtras :extras="room.extras" />
+    <RouterLink :to="{name:'rooms'}" class="button">Details</RouterLink>
   </b-card>
 </template>
 
 <script setup>
-import { BCard, BRow, BCol } from "bootstrap-vue-next";
+import {BCard, BRow, BCol, BButton} from "bootstrap-vue-next";
 import RoomExtras from "./RoomExtras.vue";
 //import {RoomAvailabilityCard} from "@/room/components/RoomAvailabilityCard.vue";
 
@@ -34,6 +35,11 @@ const props = defineProps({
     required: true,
   },
 });
+
+const links = [
+  {text: 'Details', to: 'RoomDetails'}
+    ]
+
 </script>
 
 <style>
