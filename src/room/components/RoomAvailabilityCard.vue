@@ -1,82 +1,111 @@
 <script setup>
-import {useRoomStore} from "@/stores/roomStore";
-
+import { ref, computed } from "vue";
+import { BAlert, BButton, BCard, BCardText, BSpinner } from "bootstrap-vue-next";
+import { useRoomStore } from "@/stores/roomStore";
 
 const props = defineProps({
   roomId: {
     type: Number,
-    required: true
-  }
-})
+    required: true,
+  },
+});
+
 const store = useRoomStore();
 
-const arrival = ref(null);
-const departure = ref(null);
+const arrival = ref("");
+const departure = ref("");
 const availability = ref(null);
 const error = ref(null);
+const isChecking = ref(false);
+
+const validationError = computed(() => {
+  if (!arrival.value || !departure.value) return null;
+  if (departure.value < arrival.value) {
+    return "Das Abreisedatum muss nach dem Anreisedatum liegen.";
+  }
+  return null;
+});
+
+const hasChecked = computed(() => availability.value !== null && !error.value);
 
 const check = async () => {
-  error.value = null
-  availability.value = null
+  error.value = null;
+  availability.value = null;
 
   if (!arrival.value || !departure.value) {
-    error.value = "Bitte wähle ein Anreise/Abreisedatum aus";
+    error.value = "Bitte wähle ein Anreise- und Abreisedatum aus.";
     return;
   }
 
-  if(departure.value < arrival.value) {
-    error.value = "Das Abreisedatum muss nach dem Anreisedatum liegen";
+  if (validationError.value) {
+    error.value = validationError.value;
     return;
   }
 
+  isChecking.value = true;
   try {
-    availability.value = store.checkAvailability(props.roomId, arrival.value, departure.value);
-  } catch (error) {
-    error.value = "Serverfehler - bitte versuchen Sie es später erneut."
+    const result = await store.checkAvailability(
+      props.roomId,
+      arrival.value,
+      departure.value
+    );
+    availability.value = result;
+  } catch (err) {
+    error.value =
+      err.message || "Serverfehler - bitte versuchen Sie es später erneut.";
+  } finally {
+    isChecking.value = false;
   }
-}
-
-
-import {BButton, BCard} from "bootstrap-vue-next";
-import {ref} from "vue";
+};
 </script>
 
 <template>
   <BCard
-      title="Verfügbarkeit prüfen"
-      border-variant="info"
-      header="Buchungszeitraum"
-      class="p-3"
+    title="Verfügbarkeit prüfen"
+    border-variant="info"
+    header="Buchungszeitraum"
+    class="p-3"
   >
-    <BCardText>
-     Bitte wähle einen gewünschten Zeitraum aus
-    </BCardText>
-    <label>Anreise</label>
-    <BFormDatepicker v-model="arrival" class="mb-2" />
+    <BCardText> Bitte wähle einen gewünschten Zeitraum aus. </BCardText>
+    <label class="form-label small text-muted mb-1">Anreise</label>
+    <input
+      type="date"
+      class="form-control mb-2"
+      v-model="arrival"
+      :disabled="isChecking"
+    />
 
-    <label>Abreise</label>
-    <BFormDatepicker v-model="departure" class="mb-2" />
+    <label class="form-label small text-muted mb-1">Abreise</label>
+    <input
+      type="date"
+      class="form-control mb-3"
+      v-model="departure"
+      :disabled="isChecking"
+    />
 
-    <BButton variant="primary" @click="check">
-      Verfügbarkeit prüfen
+    <BButton variant="primary" class="w-100" :disabled="isChecking" @click="check">
+      <span class="d-inline-flex align-items-center gap-2">
+        <span>Verfügbarkeit prüfen</span>
+        <BSpinner v-if="isChecking" small />
+      </span>
     </BButton>
 
-    <div class ="mt-3">
-      <div v-if="availability === true" class="alert alert-success">
+    <div class="mt-3">
+      <BAlert v-if="availability === true" variant="success" show>
         Zimmer ist verfügbar
-      </div>
+      </BAlert>
 
-      <div v-if="availability === false" class="alert alert-danger">
+      <BAlert v-else-if="availability === false" variant="danger" show>
         Zimmer ist leider zum gewünschten Zeitraum nicht verfügbar
-      </div>
+      </BAlert>
 
-      <div v-if="error" class="alert alert-warning">
+      <BAlert v-else-if="error" variant="warning" show>
         {{ error }}
-      </div>
+      </BAlert>
+
+      <BAlert v-else-if="hasChecked" variant="info" show>
+        Verfügbarkeit wurde geprüft.
+      </BAlert>
     </div>
   </BCard>
 </template>
-
-<style scoped>
-
-</style>

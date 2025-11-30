@@ -20,7 +20,9 @@
     </b-row>
 
     <RoomExtras :extras="room.extras" />
-    <RouterLink :to="{name:'rooms'}" class="button">Details</RouterLink>
+    <RouterLink :to="{ name: 'room', params: { id: room.id } }" class="button">
+      Details
+    </RouterLink>
   </b-card>
 </template>
 
