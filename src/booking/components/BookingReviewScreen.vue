@@ -7,9 +7,12 @@ import {
   BCol,
 } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
 import { useBookingStore } from "@/stores/bookingStore";
 
+const router = useRouter();
 const bookingStore = useBookingStore();
+
 const {
   bookingSummary,
   isSubmitting,
@@ -20,6 +23,13 @@ const { backToForm, submitBooking } = bookingStore;
 
 function onConfirm() {
   submitBooking();
+}
+
+
+function editRoomAndPeriod() {
+
+
+  router.back();
 }
 </script>
 
@@ -66,15 +76,27 @@ function onConfirm() {
       </BCol>
     </BRow>
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex flex-column flex-md-row gap-2 justify-content-between">
+
       <BButton
           type="button"
           variant="outline-secondary"
           @click="backToForm"
           :disabled="isSubmitting"
       >
-        Daten bearbeiten
+        Personendaten bearbeiten
       </BButton>
+
+
+      <BButton
+          type="button"
+          variant="outline-primary"
+          @click="editRoomAndPeriod"
+          :disabled="isSubmitting"
+      >
+        Zimmer & Zeitraum ändern
+      </BButton>
+
 
       <BButton
           type="button"
