@@ -21,7 +21,7 @@ const props = defineProps({
     <b-row class="mb-4">
       <b-col>
         <small class="text-muted d-block">
-          Zimmer {{ room.number || "–" }} – {{ room.beds }} Betten
+          Zimmer {{ room.number || "–" }} || {{ room.beds }} Betten
         </small>
       </b-col>
       <b-col cols="auto">
@@ -32,7 +32,7 @@ const props = defineProps({
     </b-row>
 
     <RoomExtras :extras="room.extras" />
-    <RouterLink :to="{ name: 'room', params: { id: room.id } }" class="button">
+    <RouterLink :to="{ name: 'room', params: { id: room.id } }" class="button details-button" >
       Details
     </RouterLink>
   </b-card>
@@ -43,4 +43,14 @@ const props = defineProps({
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+.room-card {
+  background-color: #FFDAD5;
+}
+.details-button{
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  color: #5a3d2e;
+}
+
 </style>

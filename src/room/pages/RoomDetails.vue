@@ -45,12 +45,9 @@ const heroImage = computed(
       <RouterLink :to="{ name: 'rooms' }" class="text-decoration-none small">
         ← Zurück zur Übersicht
       </RouterLink>
-      <p class="text-uppercase text-muted small mb-1 mt-2">
-        Boutique Hotel Technikum
-      </p>
       <h1 class="mb-2">{{ currentRoom?.name || "Zimmer" }}</h1>
       <p class="text-muted mb-0" v-if="currentRoom">
-        Zimmer {{ currentRoom.number || "–" }} · {{ currentRoom.beds }} Betten
+        Zimmer {{ currentRoom.number || "–" }} || {{ currentRoom.beds }} Betten
       </p>
     </header>
 

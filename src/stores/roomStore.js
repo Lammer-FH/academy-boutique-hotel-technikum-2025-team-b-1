@@ -1,21 +1,21 @@
-import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import {defineStore} from "pinia";
+import {ref, computed} from "vue";
 import axios from "axios";
 
 const baseURL = "https://boutique-hotel.helmuth-lammer.at/api/v1";
 
 const EXTRA_MAP = {
-  bathroom: { label: "Eigenes Bad", type: "bathroom" },
-  minibar: { label: "Minibar", type: "minibar" },
-  television: { label: "Fernseher", type: "television" },
-  livingroom: { label: "Wohnbereich", type: "livingroom" },
-  aircondition: { label: "Klimaanlage", type: "aircondition" },
-  wifi: { label: "WLAN", type: "wifi" },
-  breakfast: { label: "Frühstück", type: "breakfast" },
-  "handicapped accessible": {
-    label: "Barrierefrei",
-    type: "handicapped accessible",
-  },
+    bathroom: {label: "Eigenes Bad", type: "bathroom"},
+    minibar: {label: "Minibar", type: "minibar"},
+    television: {label: "Fernseher", type: "television"},
+    livingroom: {label: "Wohnbereich", type: "livingroom"},
+    aircondition: {label: "Klimaanlage", type: "aircondition"},
+    wifi: {label: "WLAN", type: "wifi"},
+    breakfast: {label: "Frühstück", type: "breakfast"},
+    "handicapped accessible": {
+        label: "Barrierefrei",
+        type: "handicapped accessible",
+    },
 };
 
 const normalizeExtras = (extras = [], roomId = "room") => {
@@ -42,11 +42,11 @@ const normalizeExtras = (extras = [], roomId = "room") => {
 };
 
 const normalizeRoom = (room) => ({
-  ...room,
-  name: room.roomsName,
-  number: room.roomsNumber,
-  extras: normalizeExtras(room.extras, room.id),
-  image: { src: `/Room-Images/Boutique-Hotel-Rooms-${room.id}.jpg` },
+    ...room,
+    name: room.roomsName,
+    number: room.roomsNumber || room.roomNumber,
+    extras: normalizeExtras(room.extras, room.id),
+    image: { src: `/Room-Images/Boutique-Hotel-Rooms-${room.id}.jpg` },
 });
 
 async function getAvailability(roomId, arrivalDate, departureDate) {

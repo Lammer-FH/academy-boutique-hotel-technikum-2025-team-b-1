@@ -1,4 +1,4 @@
-<script setup>
+ <script setup>
 import { computed, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { BRow, BCol, BSpinner, BPagination } from "bootstrap-vue-next";
