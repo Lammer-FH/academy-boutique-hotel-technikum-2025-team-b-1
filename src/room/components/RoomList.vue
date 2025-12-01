@@ -1,4 +1,4 @@
-<template>
+ <template>
   <BaseList>
     <template #filters>
       <RoomAvailabilityFilter />
