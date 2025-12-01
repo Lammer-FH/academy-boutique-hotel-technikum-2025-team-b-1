@@ -2,6 +2,9 @@
 import { ref, computed } from "vue";
 import { BAlert, BButton, BCard, BCardText, BSpinner } from "bootstrap-vue-next";
 import { useRoomStore } from "@/stores/roomStore";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const props = defineProps({
   roomId: {
@@ -57,6 +60,18 @@ const check = async () => {
     isChecking.value = false;
   }
 };
+
+function goToBooking() {
+  if (!arrival.value || !departure.value) return;
+  router.push({
+    name: "booking",
+    params: { id: props.roomId },
+    query: {
+      from: arrival.value,
+      to: departure.value,
+    },
+  });
+}
 </script>
 
 <template>
@@ -91,9 +106,24 @@ const check = async () => {
     </BButton>
 
     <div class="mt-3">
-      <BAlert v-if="availability === true" variant="success" show>
-        Zimmer ist verfügbar
+      <BAlert
+          v-if="availability === true"
+          variant="success"
+          show
+          class="mb-3"
+      >
+        Zimmer ist zum gewünschten Zeitraum verfügbar.
       </BAlert>
+
+      <BButton
+          v-if="availability === true"
+          class="w-100"
+          variant="primary"
+          @click="goToBooking"
+      >
+        Jetzt buchen
+      </BButton>
+
 
       <BAlert v-else-if="availability === false" variant="danger" show>
         Zimmer ist leider zum gewünschten Zeitraum nicht verfügbar
