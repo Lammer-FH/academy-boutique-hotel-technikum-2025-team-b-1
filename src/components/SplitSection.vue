@@ -1,11 +1,13 @@
 <script setup>
+import { BContainer, BRow, BCol, BImg } from 'bootstrap-vue-next'
+
 const props = defineProps({
   title: { type: String, required: true },
   textMuted: { type: String, default: "" },
   img: { type: String, required: true },
   reverse: { type: Boolean, default: false },
   bg: { type: String, default: "transparent" },
-});
+})
 </script>
 
 <template>
@@ -35,7 +37,7 @@ const props = defineProps({
 </template>
 
 <style scoped>
-img.rounded-4 {
+.rounded-4 {
   border-radius: 1rem !important;
 }
 </style>

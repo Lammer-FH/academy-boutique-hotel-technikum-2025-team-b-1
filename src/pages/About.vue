@@ -95,7 +95,7 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
         Finde dein Lieblingszimmer und buche in wenigen Schritten – mit nur einem Klick bist du deinem
         nächsten Wohlfühlmoment ein Stück näher.
       </p>
-      <router-link class="btn btn-light btn-lg" to="/rooms">Jetzt Zimmer wählen</router-link>
+      <router-link class="btn btn-light btn-lg" to="/zimmer">Jetzt Zimmer wählen</router-link>
     </SplitSection>
   </DefaultLayout>
 </template>
@@ -108,7 +108,7 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
   color: white;
   background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("@/assets/pictures/hotel-fotos/726816457.jpg")
+      url("src/assets/pictures/hotel-fotos/726816457.jpg")
       center/cover no-repeat;
 }
 
