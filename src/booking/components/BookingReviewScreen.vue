@@ -19,16 +19,13 @@ const {
   errorMessage,
 } = storeToRefs(bookingStore);
 
-const { backToForm, submitBooking } = bookingStore;
+const { backToStart, submit } = bookingStore;
 
 function onConfirm() {
-  submitBooking();
+  submit();
 }
 
-
 function editRoomAndPeriod() {
-
-
   router.back();
 }
 </script>
@@ -81,7 +78,7 @@ function editRoomAndPeriod() {
       <BButton
           type="button"
           variant="outline-secondary"
-          @click="backToForm"
+          @click="backToStart"
           :disabled="isSubmitting"
       >
         Personendaten bearbeiten

@@ -10,11 +10,9 @@ import {
   BCardBody,
   BSpinner,
 } from "bootstrap-vue-next";
-
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import { useRoomStore } from "@/stores/roomStore";
-import { useBookingStore } from "@/stores/bookingStore";
-
+import { useBookingStore, STEPS } from "@/stores/bookingStore";
 import BookingForm from "./BookingForm.vue";
 import BookingReviewScreen from "./BookingReviewScreen.vue";
 import BookingSuccessScreen from "./BookingSuccessScreen.vue";
@@ -33,16 +31,15 @@ onMounted(() => {
   const from = route.query.from || route.query.arrival || "";
   const to = route.query.to || route.query.departure || "";
 
-  // Zimmer laden, falls noch nicht vorhanden
   if (!currentRoom.value || currentRoom.value.id !== Number(roomId)) {
     roomStore.loadRoom(roomId);
   }
 
-  bookingStore.startBooking(roomId, from, to);
+  bookingStore.start(roomId, from, to);
 });
 
 const formattedPeriod = computed(() => {
-  if (!arrivalDate.value || !departureDate.value) return "";
+  if (!arrivalDate.value || !departureDate.value) return "Kein Zeitraum ausgewählt";
   return `${arrivalDate.value} – ${departureDate.value}`;
 });
 </script>
@@ -50,21 +47,18 @@ const formattedPeriod = computed(() => {
 <template>
   <DefaultLayout>
     <BRow class="gy-4">
-
       <BCol lg="8">
         <BCard>
           <BCardHeader>
             <h1 class="h4 mb-0">Zimmer buchen</h1>
           </BCardHeader>
           <BCardBody>
-            <BookingForm v-if="step === 'form'" />
-            <BookingReviewScreen v-else-if="step === 'review'" />
-            <BookingSuccessScreen v-else-if="step === 'success'" />
+            <BookingForm v-if="step === STEPS.start" />
+            <BookingReviewScreen v-else-if="step === STEPS.review" />
+            <BookingSuccessScreen v-else-if="step === STEPS.summary" />
           </BCardBody>
         </BCard>
       </BCol>
-
-
       <BCol lg="4">
         <BCard>
           <BCardHeader>
@@ -94,7 +88,7 @@ const formattedPeriod = computed(() => {
 
               <p class="mb-1 text-muted small">Reisezeitraum</p>
               <p class="fw-semibold mb-0">
-                {{ formattedPeriod || "Kein Zeitraum ausgewählt" }}
+                {{ formattedPeriod }}
               </p>
             </div>
           </BCardBody>

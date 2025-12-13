@@ -7,11 +7,7 @@ import { useBookingStore } from "@/stores/bookingStore";
 const bookingStore = useBookingStore();
 const { bookingSummary } = storeToRefs(bookingStore);
 
-const { resetBooking } = bookingStore;
-
-function goBackToRooms() {
-  resetBooking();
-}
+const { reset } = bookingStore;
 </script>
 
 <template>
@@ -50,7 +46,7 @@ function goBackToRooms() {
           custom
           v-slot="{ navigate }"
       >
-        <BButton variant="primary" @click="() => { goBackToRooms(); navigate(); }">
+        <BButton variant="primary" @click="() => { reset(); navigate(); }">
           Zurück zur Zimmerübersicht
         </BButton>
       </RouterLink>

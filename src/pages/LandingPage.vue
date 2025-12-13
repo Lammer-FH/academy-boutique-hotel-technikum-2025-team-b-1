@@ -111,5 +111,4 @@ const imagesSpa = [
   height: 450px;
   object-fit: cover;
 }
-
 </style>

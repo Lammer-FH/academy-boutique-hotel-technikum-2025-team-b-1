@@ -1,3 +1,13 @@
+<script setup>
+const links = [
+  { text: 'Zimmer', to: { name: 'rooms' } },
+  { text: 'Restaurant', href: '#restaurant' },
+  { text: 'Spa', href: '#spa' },
+  { text: 'Über uns', to: { name: 'about' } },
+  { text: 'Kontakt', href: '#contact' },
+];
+</script>
+
 <template>
   <nav class="navbar navbar-expand-lg navbar-light" id="navBar">
     <div class="container-fluid">
@@ -33,19 +43,7 @@
   </nav>
 </template>
 
-<script setup>
-
-const links = [
-  { text: 'Zimmer', to: { name: 'rooms' } },
-  { text: 'Restaurant', href: '#restaurant' },
-  { text: 'Spa', href: '#spa' },
-  { text: 'Über uns', to: { name: 'about' } },
-  { text: 'Kontakt', href: '#contact' },
-];
-</script>
-
 <style scoped>
-
 .no-underline {
   text-decoration: none;
   color: #5a3d2e;

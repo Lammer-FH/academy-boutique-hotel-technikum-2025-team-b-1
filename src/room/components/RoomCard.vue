@@ -1,3 +1,15 @@
+<script setup>
+import {BCard, BRow, BCol, BButton} from "bootstrap-vue-next";
+import RoomExtras from "./RoomExtras.vue";
+
+const props = defineProps({
+  room: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <b-card
     :title="room.name"
@@ -26,29 +38,9 @@
   </b-card>
 </template>
 
-<script setup>
-import {BCard, BRow, BCol, BButton} from "bootstrap-vue-next";
-import RoomExtras from "./RoomExtras.vue";
-//import {RoomAvailabilityCard} from "@/room/components/RoomAvailabilityCard.vue";
-
-const props = defineProps({
-  room: {
-    type: Object,
-    required: true,
-  },
-});
-
-const links = [
-  {text: 'Details', to: 'RoomDetails'}
-    ]
-
-</script>
-
 <style>
 .room-card img {
   aspect-ratio: 16 / 9;
   object-fit: cover;
-
-
 }
 </style>

@@ -4,50 +4,33 @@ import axios from "axios";
 
 const baseURL = "https://boutique-hotel.helmuth-lammer.at/api/v1";
 
-export const useBookingStore = defineStore("booking", () => {
+export const STEPS = {
+    start: 'start',
+    review: 'review',
+    summary: 'summary',
+}
 
+export const useBookingStore = defineStore("booking", () => {
     const roomId = ref(null);
     const arrivalDate = ref("");
     const departureDate = ref("");
-
-
     const firstname = ref("");
     const lastname = ref("");
     const email = ref("");
     const emailConfirm = ref("");
     const breakfast = ref(false);
-
-
-    const step = ref("form");
+    const step = ref(STEPS.start);
     const isSubmitting = ref(false);
     const errorMessage = ref(null);
     const validationErrors = ref({});
-
-
     const bookingId = ref(null);
 
-    function startBooking(initRoomId, fromDate, toDate) {
-        roomId.value = Number(initRoomId) || null;
-        arrivalDate.value = fromDate || "";
-        departureDate.value = toDate || "";
-        step.value = "form";
+    function start(newRoomId, newArrivalDate, newDepartureDate) {
+        roomId.value = Number(newRoomId) || null;
+        arrivalDate.value = newArrivalDate || "";
+        departureDate.value = newDepartureDate || "";
+        step.value = STEPS.start;
         errorMessage.value = null;
-        bookingId.value = null;
-    }
-
-    function resetBooking() {
-        roomId.value = null;
-        arrivalDate.value = "";
-        departureDate.value = "";
-        firstname.value = "";
-        lastname.value = "";
-        email.value = "";
-        emailConfirm.value = "";
-        breakfast.value = false;
-        step.value = "form";
-        isSubmitting.value = false;
-        errorMessage.value = null;
-        validationErrors.value = {};
         bookingId.value = null;
     }
 
@@ -57,9 +40,11 @@ export const useBookingStore = defineStore("booking", () => {
         if (!firstname.value.trim()) {
             errors.firstname = "Vorname ist erforderlich.";
         }
+
         if (!lastname.value.trim()) {
             errors.lastname = "Nachname ist erforderlich.";
         }
+
         if (!email.value.trim()) {
             errors.email = "E-Mail-Adresse ist erforderlich.";
         } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
@@ -86,20 +71,36 @@ export const useBookingStore = defineStore("booking", () => {
         return Object.keys(errors).length === 0;
     }
 
-    function goToReview() {
+    function reset() {
+        roomId.value = null;
+        arrivalDate.value = "";
+        departureDate.value = "";
+        firstname.value = "";
+        lastname.value = "";
+        email.value = "";
+        emailConfirm.value = "";
+        breakfast.value = false;
+        step.value = STEPS.start;
+        isSubmitting.value = false;
+        errorMessage.value = null;
+        validationErrors.value = {};
+        bookingId.value = null;
+    }
+
+    function review() {
         errorMessage.value = null;
         if (validate()) {
-            step.value = "review";
+            step.value = STEPS.review;
         }
     }
 
-    function backToForm() {
-        step.value = "form";
+    function backToStart() {
+        step.value = STEPS.start;
     }
 
-    async function submitBooking() {
+    async function submit() {
         if (!validate()) {
-            step.value = "form";
+            step.value = STEPS.start;
             return;
         }
 
@@ -107,7 +108,6 @@ export const useBookingStore = defineStore("booking", () => {
         errorMessage.value = null;
 
         try {
-
             const payload = {
                 firstname: firstname.value,
                 lastname: lastname.value,
@@ -121,7 +121,7 @@ export const useBookingStore = defineStore("booking", () => {
             );
 
             bookingId.value = response.data?.id ?? null;
-            step.value = "success";
+            step.value = STEPS.summary;
         } catch (err) {
             if (err.response && err.response.status === 409) {
 
@@ -169,16 +169,13 @@ export const useBookingStore = defineStore("booking", () => {
         errorMessage,
         validationErrors,
         bookingId,
-
-
         hasValidationErrors,
         bookingSummary,
-
         // actions
-        startBooking,
-        resetBooking,
-        goToReview,
-        backToForm,
-        submitBooking,
+        start,
+        reset,
+        review,
+        backToStart,
+        submit,
     };
 });

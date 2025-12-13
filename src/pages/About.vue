@@ -1,6 +1,7 @@
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import SplitSection from "@/components/SplitSection.vue";
+
 const imgTeam = new URL('@/assets/pictures/hotel-lobby/helena-lopes-yIcm3DWRz-c-unsplash.jpg', import.meta.url).href;
 const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-Bed-Overview.4x3.jpg.webp', import.meta.url).href;
 </script>
@@ -65,8 +66,6 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
       </div>
     </section>
 
-
-
     <SplitSection
         :img="imgTeam"
         title="Das Team hinter dem Boutique Hotel Technikum"
@@ -83,7 +82,6 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
         ein Haus, das nicht nur zum Übernachten, sondern zum Wohlfühlen, Entspannen und Verweilen einlädt.
       </p>
     </SplitSection>
-
 
     <SplitSection
         :img="imgBooking"
@@ -117,7 +115,6 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
 }
-
 
 .display-4 {
   color: #FFDAD5 !important;

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
+</script>
+
 <template>
   <b-container fluid id="footer" class="text-center">
     <b-card-title class="fw-bold mb-3">Kontakt</b-card-title>
@@ -37,7 +41,6 @@
   border-top: 3px solid #FEF1C8;
 }
 
-
 #footerLinks {
   font-weight: 500;
 }
@@ -57,6 +60,3 @@
   text-decoration: underline;
 }
 </style>
-<script setup lang="ts">
-import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
-</script>

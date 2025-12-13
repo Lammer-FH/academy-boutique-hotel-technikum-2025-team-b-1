@@ -1,3 +1,19 @@
+<script setup>
+import { BContainer, BButton } from "bootstrap-vue-next";
+import BootstrapCarousel from "@/components/Carousel.vue";
+
+defineProps({
+  sectionTitle: { type: String, required: true },
+  sectionSubtitle: { type: String, required: true },
+  sectionText: { type: String, required: true },
+  buttonText: { type: String, required: true },
+  buttonLink: { type: String, default: "#" },
+  buttonId: { type: String, required: true },
+  images: { type: Array, required: true },
+  carouselId: { type: String, required: true },
+});
+</script>
+
 <template>
   <BContainer fluid class="text-center section-with-carousel">
 
@@ -22,29 +38,12 @@
   </BContainer>
 </template>
 
-<script setup>
-import { BContainer, BButton } from "bootstrap-vue-next";
-import BootstrapCarousel from "@/components/Carousel.vue";
-
-defineProps({
-  sectionTitle: { type: String, required: true },
-  sectionSubtitle: { type: String, required: true },
-  sectionText: { type: String, required: true },
-  buttonText: { type: String, required: true },
-  buttonLink: { type: String, default: "#" },
-  buttonId: { type: String, required: true },
-  images: { type: Array, required: true },
-  carouselId: { type: String, required: true },
-});
-</script>
-
 <style scoped>
 .section-with-carousel {
   padding: 30px;
   max-width: 1200px;
   margin-bottom: 50px;
   text-align: center;
-
   transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
@@ -53,7 +52,6 @@ defineProps({
   border-radius: 30px;
   transform: scale(1.02);
 }
-
 
 .section-with-carousel .btn {
   background-color: #FEF1C8;
