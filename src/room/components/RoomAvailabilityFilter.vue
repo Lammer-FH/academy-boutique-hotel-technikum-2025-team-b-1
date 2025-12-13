@@ -1,6 +1,6 @@
 <script setup>
-import {computed, ref, watch} from "vue";
-import {storeToRefs} from "pinia";
+import { computed, ref, watch } from "vue";
+import { storeToRefs } from "pinia";
 import {
   BAlert,
   BButton,
@@ -9,11 +9,11 @@ import {
   BRow,
   BSpinner,
 } from "bootstrap-vue-next";
-import {useRoomStore} from "@/stores/roomStore";
+import { useRoomStore } from "@/stores/roomStore";
 
 const roomStore = useRoomStore();
-const {availabilityFilter, availabilityError, isCheckingAvailability} =
-    storeToRefs(roomStore);
+const { availabilityFilter, availabilityError, isCheckingAvailability } =
+  storeToRefs(roomStore);
 
 const arrival = ref(availabilityFilter.value.arrivalDate);
 const departure = ref(availabilityFilter.value.departureDate);
@@ -28,11 +28,11 @@ const validationError = computed(() => {
 });
 
 const combinedError = computed(
-    () => localError.value || availabilityError.value || validationError.value
+  () => localError.value || availabilityError.value || validationError.value
 );
 
 const hasActiveFilter = computed(
-    () => !!(arrival.value && departure.value) && !validationError.value
+  () => !!(arrival.value && departure.value) && !validationError.value
 );
 
 const applyFilter = async () => {
@@ -57,12 +57,12 @@ const clearFilter = () => {
 };
 
 watch(
-    availabilityFilter,
-    (next) => {
-      arrival.value = next.arrivalDate;
-      departure.value = next.departureDate;
-    },
-    {deep: true}
+  availabilityFilter,
+  (next) => {
+    arrival.value = next.arrivalDate;
+    departure.value = next.departureDate;
+  },
+  { deep: true }
 );
 </script>
 
@@ -72,43 +72,42 @@ watch(
       <BCol md="4">
         <label class="form-label small text-muted mb-1">Anreise</label>
         <input
-            type="date"
-            v-model="arrival"
-            :disabled="isCheckingAvailability"
-            class="form-control"
+          type="date"
+          v-model="arrival"
+          :disabled="isCheckingAvailability"
+          class="form-control"
         />
       </BCol>
 
       <BCol md="4">
         <label class="form-label small text-muted mb-1">Abreise</label>
         <input
-            type="date"
-            v-model="departure"
-            :disabled="isCheckingAvailability"
-            class="form-control"
+          type="date"
+          v-model="departure"
+          :disabled="isCheckingAvailability"
+          class="form-control"
         />
       </BCol>
 
       <BCol md="4" class="d-flex gap-2">
         <BButton
-            variant="transparent"
-            id="checkAvailabilityButton"
-            class="custom-button"
-            :disabled="
+          variant="primary"
+          class="flex-fill"
+          :disabled="
             isCheckingAvailability || !!validationError || !hasActiveFilter
           "
-            @click="applyFilter"
+          @click="applyFilter"
         >
           <span class="d-inline-flex align-items-center gap-2">
             <span>Filter anwenden</span>
-            <BSpinner v-if="isCheckingAvailability" small/>
+            <BSpinner v-if="isCheckingAvailability" small />
           </span>
         </BButton>
         <BButton
-            variant="outline-secondary"
-            class="flex-fill"
-            :disabled="isCheckingAvailability || (!arrival && !departure)"
-            @click="clearFilter"
+          variant="outline-secondary"
+          class="flex-fill"
+          :disabled="isCheckingAvailability || (!arrival && !departure)"
+          @click="clearFilter"
         >
           Zurücksetzen
         </BButton>
@@ -119,20 +118,12 @@ watch(
       {{ combinedError }}
     </BAlert>
     <BAlert
-        v-else-if="hasActiveFilter && !isCheckingAvailability"
-        variant="info"
-        class="mt-3 mb-0"
-        show
+      v-else-if="hasActiveFilter && !isCheckingAvailability"
+      variant="info"
+      class="mt-3 mb-0"
+      show
     >
       Es werden nur Zimmer angezeigt, die im gewählten Zeitraum verfügbar sind.
     </BAlert>
   </BCard>
 </template>
-
-<style>
-#checkAvailabilityButton {
-  background-color: #FFDAD5;
-  color: black;
-}
-
-</style>

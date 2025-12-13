@@ -1,12 +1,9 @@
 <script setup>
-
-
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 </script>
 
 <template>
   <DefaultLayout>
-
     <div class="body">
     <h1>Impressum</h1>
 
@@ -56,6 +53,4 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
   margin-left: auto;
   margin-right: auto;
 }
-
-
 </style>

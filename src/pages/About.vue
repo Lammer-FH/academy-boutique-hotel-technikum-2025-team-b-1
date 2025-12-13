@@ -1,6 +1,7 @@
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import SplitSection from "@/components/SplitSection.vue";
+
 const imgTeam = new URL('@/assets/pictures/hotel-lobby/helena-lopes-yIcm3DWRz-c-unsplash.jpg', import.meta.url).href;
 const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-Bed-Overview.4x3.jpg.webp', import.meta.url).href;
 </script>
@@ -65,8 +66,6 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
       </div>
     </section>
 
-
-
     <SplitSection
         :img="imgTeam"
         title="Das Team hinter dem Boutique Hotel Technikum"
@@ -84,7 +83,6 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
       </p>
     </SplitSection>
 
-
     <SplitSection
         :img="imgBooking"
         :reverse="true"
@@ -95,7 +93,7 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
         Finde dein Lieblingszimmer und buche in wenigen Schritten – mit nur einem Klick bist du deinem
         nächsten Wohlfühlmoment ein Stück näher.
       </p>
-      <router-link class="btn btn-light btn-lg" to="/rooms">Jetzt Zimmer wählen</router-link>
+      <router-link class="btn btn-light btn-lg" to="/zimmer">Jetzt Zimmer wählen</router-link>
     </SplitSection>
   </DefaultLayout>
 </template>
@@ -108,7 +106,7 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
   color: white;
   background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("@/assets/pictures/hotel-fotos/726816457.jpg")
+      url("src/assets/pictures/hotel-fotos/726816457.jpg")
       center/cover no-repeat;
 }
 
@@ -117,7 +115,6 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
 }
-
 
 .display-4 {
   color: #FFDAD5 !important;

@@ -55,7 +55,7 @@ const imagesSpa = [
         section-subtitle="Boutique-Komfort neu definiert"
         section-text="Unsere Zimmer sind der ideale Ort zum Entspannen und Wohlfühlen. Hochwertige Materialien, angenehme Farben und durchdachte Ausstattung sorgen dafür, dass Sie sich vom ersten Moment an wohlfühlen."
         button-text="Zu den Zimmern"
-        button-link="#"
+        button-link="/zimmer"
         button-id="linkZimmer"
         :images="imagesRooms"
         carousel-id="carouselRooms"
@@ -111,5 +111,4 @@ const imagesSpa = [
   height: 450px;
   object-fit: cover;
 }
-
 </style>

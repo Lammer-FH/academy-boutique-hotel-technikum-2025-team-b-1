@@ -8,7 +8,6 @@ import {BApp} from 'bootstrap-vue-next'
 </script>
 
 <style>
-
 button {
   background-color: #FEF1C8;
   border: none;

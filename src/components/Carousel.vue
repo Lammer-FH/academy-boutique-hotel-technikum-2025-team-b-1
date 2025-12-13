@@ -1,3 +1,12 @@
+<script setup>
+import {BCarousel,BCarouselSlide} from 'bootstrap-vue-next'
+
+defineProps({
+  carouselId: { type: String, required: true },
+  images: { type: Array, required: true }
+});
+</script>
+
 <template>
   <BCarousel
       :id="carouselId"
@@ -14,20 +23,9 @@
   </BCarousel>
 </template>
 
-<script setup>
-import {BCarousel,BCarouselSlide} from 'bootstrap-vue-next'
-defineProps({
-  carouselId: { type: String, required: true },
-  images: { type: Array, required: true }
-});
-</script>
-
-
 <style>
 .carousel img {
   height: 400px;
   object-fit: cover;
 }
 </style>
-
-
