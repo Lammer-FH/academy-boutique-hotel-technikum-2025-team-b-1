@@ -6,9 +6,9 @@ defineProps({
   sectionTitle: { type: String, required: true },
   sectionSubtitle: { type: String, required: true },
   sectionText: { type: String, required: true },
-  buttonText: { type: String, required: true },
+  buttonText: { type: String},
   buttonLink: { type: String, default: "#" },
-  buttonId: { type: String, required: true },
+  buttonId: { type: String},
   images: { type: Array, required: true },
   carouselId: { type: String, required: true },
 });
@@ -27,6 +27,7 @@ defineProps({
     <p>{{ sectionText }}</p>
 
     <BButton
+        v-if="buttonText"
         :id="buttonId"
         :href="buttonLink"
         class="mt-3"

@@ -45,10 +45,12 @@ const heroImage = computed(
       <RouterLink :to="{ name: 'rooms' }" class="text-decoration-none small">
         ← Zurück zur Übersicht
       </RouterLink>
-      <h1 class="mb-2">{{ currentRoom?.name || "Zimmer" }}</h1>
-      <p class="text-muted mb-0" v-if="currentRoom">
-        Zimmer {{ currentRoom.number || "–" }} || {{ currentRoom.beds }} Betten
-      </p>
+      <template v-if="currentRoom">
+        <h1 class="mb-2">{{ currentRoom.roomName || "Zimmer" }}</h1>
+        <p class="text-muted mb-0">
+          Zimmer {{ currentRoom.number || "–" }} || {{ currentRoom.beds }} Betten
+        </p>
+      </template>
     </header>
 
     <div v-if="errorMessage" class="alert alert-danger" role="alert">

@@ -9,6 +9,7 @@ import {
 } from "bootstrap-vue-next";
 import { useRoomStore } from "@/stores/roomStore";
 import { useRouter } from "vue-router";
+import {storeToRefs} from "pinia";
 
 const router = useRouter();
 
@@ -20,17 +21,28 @@ const props = defineProps({
 });
 
 const store = useRoomStore();
-const arrival = ref(store.availabilityFilter.arrivalDate);
-const departure = ref(store.availabilityFilter.departureDate);
+const {availabilityFilter, availabilityError} = storeToRefs(store);
+
+const validationError = computed(() => {
+  if (!availabilityFilter.value.arrivalDate || !availabilityFilter.value.departureDate) return null;
+  if (availabilityFilter.value.departureDate < availabilityFilter.value.arrivalDate) {
+    return "Das Abreisedatum muss nach dem Anreisedatum liegen.";
+  }
+  return null;
+});
+
+const combinedError = computed(
+    () => validationError.value || availabilityError.value
+);
 
 function goToBooking() {
-  if (!arrival.value || !departure.value) return;
+  if (!availabilityFilter.value.arrivalDate || !availabilityFilter.value.departureDate) return;
   router.push({
     name: "booking",
     params: { id: props.roomId },
     query: {
-      from: arrival.value,
-      to: departure.value,
+      from: availabilityFilter.value.arrivalDate,
+      to: availabilityFilter.value.departureDate,
     },
   });
 }
@@ -48,7 +60,7 @@ function goToBooking() {
     <input
       type="date"
       class="form-control mb-2"
-      v-model="arrival"
+      v-model="availabilityFilter.arrivalDate"
       :disabled="store.isCheckingAvailability"
     />
 
@@ -56,7 +68,7 @@ function goToBooking() {
     <input
       type="date"
       class="form-control mb-3"
-      v-model="departure"
+      v-model="availabilityFilter.departureDate"
       :disabled="store.isCheckingAvailability"
     />
 
@@ -64,7 +76,7 @@ function goToBooking() {
       variant="primary"
       class="w-100"
       :disabled="store.isCheckingAvailability"
-      @click="store.checkAvailability(roomId, arrival, departure)"
+      @click="store.checkAvailability(roomId, availabilityFilter.arrivalDate, availabilityFilter.departureDate)"
     >
       <span class="d-inline-flex align-items-center gap-2">
         <span>Verfügbarkeit prüfen</span>
@@ -86,13 +98,15 @@ function goToBooking() {
         Jetzt buchen
       </BButton>
 
-      <BAlert v-else-if="store.isAvailable === false" variant="danger" show>
-        Zimmer ist leider zum gewünschten Zeitraum nicht verfügbar
-      </BAlert>
+      <template v-else>
+        <BAlert v-if="store.isAvailable === false" variant="danger" show>
+          Zimmer ist leider zum gewünschten Zeitraum nicht verfügbar
+        </BAlert>
 
-      <BAlert v-else-if="store.availabilityError" variant="warning" show>
-        {{ store.availabilityError }}
-      </BAlert>
+        <BAlert v-if="combinedError" variant="warning" show>
+          {{ combinedError }}
+        </BAlert>
+      </template>
     </div>
   </BCard>
 </template>

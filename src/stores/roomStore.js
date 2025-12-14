@@ -126,6 +126,7 @@ export const useRoomStore = defineStore("roomStore", () => {
 
   async function checkAvailability(roomId) {
     availabilityError.value = null;
+    isAvailable.value = null;
 
     if (!availabilityFilter.value.arrivalDate || !availabilityFilter.value.departureDate) {
       availabilityError.value =

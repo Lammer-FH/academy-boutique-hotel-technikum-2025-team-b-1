@@ -65,9 +65,6 @@ const imagesSpa = [
         section-title="Unser Restaurant"
         section-subtitle="Restaurant Lammé"
         section-text="In unserem Restaurant genießen Sie frisch zubereitete Gerichte in entspannter Atmosphäre. Wir legen großen Wert auf regionale und saisonale Zutaten, die mit Sorgfalt verarbeitet werden."
-        button-text="zum Restaurant"
-        button-link="#"
-        button-id="linkRestaurant"
         :images="imagesRestaurant"
         carousel-id="carouselRestaurant"
     />
@@ -76,9 +73,6 @@ const imagesSpa = [
         section-title="Unser Spa-Bereich"
         section-subtitle="Willkommen in einer Welt der Ruhe und Erneuerung."
         section-text="Unser Spa ist der perfekte Ort, um Körper und Geist zur Ruhe kommen zu lassen. Hier treffen modernes Design und eine angenehme, warme Atmosphäre aufeinander. Lassen Sie den Alltag für eine Weile hinter sich und genießen Sie entspannte Momente in einer Umgebung aus Licht, Ruhe und Wohlbefinden. Ob bei einer wohltuenden Massage, einer pflegenden Gesichtsbehandlung oder in der Sauna – hier steht Ihr persönliches Wohl im Mittelpunkt. Unsere Spa-Therapeutinnen und -Therapeuten verwenden hochwertige Produkte und gehen individuell auf Ihre Wünsche ein. Abgerundet wird das Erlebnis durch unseren gemütlichen Ruheraum und den Wellnessbereich, der zum Verweilen einlädt."
-        button-text="zum Spa"
-        button-link="#"
-        button-id="linkSpa"
         :images="imagesSpa"
         carousel-id="carouselSpa"
     />
