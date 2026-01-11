@@ -42,6 +42,11 @@ const formattedPeriod = computed(() => {
   if (!arrivalDate.value || !departureDate.value) return "Kein Zeitraum ausgewählt";
   return `${arrivalDate.value} – ${departureDate.value}`;
 });
+
+
+const pageTitle = computed(() => {
+  return step.value === STEPS.summary ? "Reservierungsbestätigung" : "Zimmer buchen";
+});
 </script>
 
 <template>
@@ -50,8 +55,10 @@ const formattedPeriod = computed(() => {
       <BCol lg="8">
         <BCard>
           <BCardHeader>
-            <h1 class="h4 mb-0">Zimmer buchen</h1>
+
+            <h1 class="h4 mb-0">{{ pageTitle }}</h1>
           </BCardHeader>
+
           <BCardBody>
             <BookingForm v-if="step === STEPS.start" />
             <BookingReviewScreen v-else-if="step === STEPS.review" />
@@ -59,6 +66,7 @@ const formattedPeriod = computed(() => {
           </BCardBody>
         </BCard>
       </BCol>
+
       <BCol lg="4">
         <BCard>
           <BCardHeader>
