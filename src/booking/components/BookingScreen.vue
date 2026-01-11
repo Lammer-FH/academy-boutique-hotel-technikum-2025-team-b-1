@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import { storeToRefs } from "pinia";
 import {
   BCol,
@@ -42,6 +42,7 @@ const formattedPeriod = computed(() => {
   if (!arrivalDate.value || !departureDate.value) return "Kein Zeitraum ausgewählt";
   return `${arrivalDate.value} – ${departureDate.value}`;
 });
+
 </script>
 
 <template>
