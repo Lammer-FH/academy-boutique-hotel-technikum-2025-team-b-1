@@ -5,27 +5,17 @@ import { BContainer, BCardTitle, BCardText, BRow, BCol } from "bootstrap-vue-nex
 <template>
   <BContainer fluid id="footer" class="text-center">
     <BCardTitle class="fw-bold mb-3">Kontakt</BCardTitle>
-
-<<<<<<< HEAD
-    <BCardText>
-=======
     <section id="contact">
-    <b-card-text>
->>>>>>> 3c9ed7c (added the feature click on contact and the page scrolls down)
-      <ul class="list-unstyled">
-        <li>Boutique Hotel Technikum</li>
-        <li>Höchstädtplatz 6</li>
-        <li>1200 Wien</li>
-        <li>Tel: +43 123 45678</li>
-        <li>E-Mail: info@hotel-technikum.at</li>
-      </ul>
-<<<<<<< HEAD
-    </BCardText>
-=======
-    </b-card-text>
+      <b-card-text>
+        <ul class="list-unstyled">
+          <li>Boutique Hotel Technikum</li>
+          <li>Höchstädtplatz 6</li>
+          <li>1200 Wien</li>
+          <li>Tel: +43 123 45678</li>
+          <li>E-Mail: info@hotel-technikum.at</li>
+        </ul>
+      </b-card-text>
     </section>
->>>>>>> 3c9ed7c (added the feature click on contact and the page scrolls down)
-
     <BRow id="footerLinks" class="mt-3 justify-content-center">
       <BCol cols="auto">
         <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>
