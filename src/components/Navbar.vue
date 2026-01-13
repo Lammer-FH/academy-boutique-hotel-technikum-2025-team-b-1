@@ -1,10 +1,12 @@
 <script setup>
 import { storeToRefs } from "pinia";
-import { BButton } from "bootstrap-vue-next";
+import {BButton, BToast} from "bootstrap-vue-next";
 import { useUserStore } from "@/stores/userStore";
 
 const userStore = useUserStore();
 const { isLoggedIn, user } = storeToRefs(userStore);
+
+let logoutValue = false;
 
 const links = [
   { text: 'Zimmer', to: { name: 'rooms' } },
@@ -13,6 +15,7 @@ const links = [
 
 function handleLogout() {
   userStore.logout();
+  logoutValue = true;
 }
 </script>
 
@@ -57,7 +60,7 @@ function handleLogout() {
 
         <div v-if="isLoggedIn" class="d-flex align-items-center ms-lg-3">
           <span class="user-greeting me-2">
-            Hallo, {{ user?.firstname || 'Gast' }}
+            Hallo, {{ user?.firstname || '' }}
           </span>
           <BButton 
             class="auth-button"
@@ -74,6 +77,7 @@ function handleLogout() {
         </RouterLink>
       </div>
     </div>
+    <BToast v-model="logoutValue" id="toaster" solid>Sie wurden erfolgreich ausgeloggt!</BToast>
   </nav>
 </template>
 
@@ -120,5 +124,9 @@ function handleLogout() {
 .user-greeting {
   color: #5a3d2e;
   font-weight: 500;
+}
+
+.toaster {
+  color: #5a3d2e;
 }
 </style>
