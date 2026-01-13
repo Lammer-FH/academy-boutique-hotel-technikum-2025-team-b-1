@@ -8,9 +8,10 @@ import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
 
     <b-card-text>
       <ul class="list-unstyled">
-        <li>Musterstraße 12</li>
-        <li>12345 Musterstadt</li>
-        <li>Tel: +49 123 456789</li>
+        <li>Boutique Hotel Technikum</li>
+        <li>Höchstädtplatz 6</li>
+        <li>1200 Wien</li>
+        <li>Tel: +43 123 45678</li>
         <li>E-Mail: info@hotel-technikum.at</li>
       </ul>
     </b-card-text>
