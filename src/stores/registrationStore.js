@@ -33,7 +33,7 @@ export const useRegistrationStore = defineStore('registration', () => {
         }
 
         if (!email.value.trim()) {
-            errors.email = "E-mail ist erforderlich"
+            errors.email = "E-Mail ist erforderlich"
         }
 
         if (!emailConfirm.value.trim()) {

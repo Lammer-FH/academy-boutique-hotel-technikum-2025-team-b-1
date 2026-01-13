@@ -66,13 +66,13 @@ function onSubmit() {
       <BFormGroup
           label="Vorname"
           label-for="booking-firstname"
-          :state="!validationErrors.firstname"
+          :state="validationErrors.firstname ? false : null"
           class="mb-3"
       >
         <BFormInput
             id="booking-firstname"
             v-model="firstname"
-            :state="!validationErrors.firstname"
+            :state="validationErrors.firstname ? false : null"
             required
         />
         <small v-if="validationErrors.firstname" class="text-danger">
@@ -83,13 +83,13 @@ function onSubmit() {
       <BFormGroup
           label="Nachname"
           label-for="booking-lastname"
-          :state="!validationErrors.lastname"
+          :state="!validationErrors.lastname ? false : null"
           class="mb-3"
       >
         <BFormInput
             id="booking-lastname"
             v-model="lastname"
-            :state="!validationErrors.lastname"
+            :state="validationErrors.lastname ? false : null"
             required
         />
         <small v-if="validationErrors.lastname" class="text-danger">
@@ -100,14 +100,14 @@ function onSubmit() {
       <BFormGroup
           label="E-Mail-Adresse"
           label-for="booking-email"
-          :state="!validationErrors.email"
+          :state="validationErrors.email ? false : null"
           class="mb-3"
       >
         <BFormInput
             id="booking-email"
             type="email"
             v-model="email"
-            :state="!validationErrors.email"
+            :state="validationErrors.email ? false : null"
             required
         />
         <small v-if="validationErrors.email" class="text-danger">
@@ -118,14 +118,14 @@ function onSubmit() {
       <BFormGroup
           label="E-Mail-Adresse bestätigen"
           label-for="booking-email-confirm"
-          :state="!validationErrors.emailConfirm"
+          :state="validationErrors.emailConfirm ? false : null"
           class="mb-3"
       >
         <BFormInput
             id="booking-email-confirm"
             type="email"
             v-model="emailConfirm"
-            :state="!validationErrors.emailConfirm"
+            :state="validationErrors.emailConfirm ? false : null"
             required
         />
         <small v-if="validationErrors.emailConfirm" class="text-danger">
