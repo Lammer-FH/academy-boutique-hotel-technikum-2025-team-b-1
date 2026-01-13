@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
-import axios from "axios";
-
-const baseURL = "https://boutique-hotel.helmuth-lammer.at/api/v1";
+import api from "@/services/api";
+import { useUserStore } from "@/stores/userStore";
 
 export const STEPS = {
     start: 'start',
@@ -32,6 +31,17 @@ export const useBookingStore = defineStore("booking", () => {
         step.value = STEPS.start;
         errorMessage.value = null;
         bookingId.value = null;
+        prefillFromUser();
+    }
+
+    function prefillFromUser() {
+        const userStore = useUserStore();
+        if (userStore.isLoggedIn && userStore.user) {
+            firstname.value = userStore.user.firstname || "";
+            lastname.value = userStore.user.lastname || "";
+            email.value = userStore.user.email || "";
+            emailConfirm.value = userStore.user.email || "";
+        }
     }
 
     function validate() {
@@ -115,8 +125,8 @@ export const useBookingStore = defineStore("booking", () => {
                 birthdate: "1990-01-01", //vorerst dummy-datum
             };
 
-            const response = await axios.post(
-                `${baseURL}/room/${roomId.value}/from/${arrivalDate.value}/to/${departureDate.value}`,
+            const response = await api.post(
+                `/room/${roomId.value}/from/${arrivalDate.value}/to/${departureDate.value}`,
                 payload
             );
 
@@ -177,5 +187,6 @@ export const useBookingStore = defineStore("booking", () => {
         review,
         backToStart,
         submit,
+        prefillFromUser,
     };
 });

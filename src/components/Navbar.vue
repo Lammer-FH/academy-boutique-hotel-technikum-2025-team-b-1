@@ -1,4 +1,11 @@
 <script setup>
+import { storeToRefs } from "pinia";
+import { BButton } from "bootstrap-vue-next";
+import { useUserStore } from "@/stores/userStore";
+
+const userStore = useUserStore();
+const { isLoggedIn, user } = storeToRefs(userStore);
+
 const links = [
   { text: 'Zimmer', to: { name: 'rooms' } },
   { text: 'Restaurant', href: '#restaurant' },
@@ -6,6 +13,10 @@ const links = [
   { text: 'Über uns', to: { name: 'about' } },
   { text: 'Kontakt', href: '#contact' },
 ];
+
+function handleLogout() {
+  userStore.logout();
+}
 </script>
 
 <template>
@@ -37,7 +48,24 @@ const links = [
             </a>
           </li>
         </ul>
-        <button class="btn ms-lg-3" id="loginButton">Login</button>
+
+        <div v-if="isLoggedIn" class="d-flex align-items-center ms-lg-3">
+          <span class="user-greeting me-2">
+            Hallo, {{ user?.firstname || 'Gast' }}
+          </span>
+          <BButton 
+            class="auth-button"
+            @click="handleLogout"
+          >
+            Abmelden
+          </BButton>
+        </div>
+
+        <RouterLink v-else :to="{ name: 'login' }" class="ms-lg-3">
+          <BButton class="auth-button">
+            Anmelden
+          </BButton>
+        </RouterLink>
       </div>
     </div>
   </nav>
@@ -71,7 +99,20 @@ const links = [
   color: #5a3d2e;
 }
 
-#loginButton {
+.auth-button {
   background-color: #FEF1C8;
+  border-color: #FEF1C8;
+  color: #5a3d2e;
+}
+
+.auth-button:hover {
+  background-color: #f5e4b0;
+  border-color: #f5e4b0;
+  color: #5a3d2e;
+}
+
+.user-greeting {
+  color: #5a3d2e;
+  font-weight: 500;
 }
 </style>

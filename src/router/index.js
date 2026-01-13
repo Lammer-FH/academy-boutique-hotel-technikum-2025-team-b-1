@@ -5,6 +5,7 @@ import About from "@/pages/About.vue";
 import RoomOverview from "@/room/pages/RoomOverview.vue";
 import RoomDetails from "@/room/pages/RoomDetails.vue";
 import BookingScreen from "@/booking/components/BookingScreen.vue";
+import LoginPage from "@/auth/pages/LoginPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: "/zimmer/:id/buchen",
       name: "booking",
       component: BookingScreen,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginPage,
     }
   ],
 })
