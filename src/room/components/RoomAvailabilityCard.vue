@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import {
   BAlert,
   BButton,
@@ -56,16 +56,18 @@ function goToBooking() {
     class="p-3"
   >
     <BCardText> Bitte wähle einen gewünschten Zeitraum aus. </BCardText>
-    <label class="form-label small text-muted mb-1">Anreise</label>
+    <label for="arrival-date" class="form-label small text-muted mb-1">Anreise</label>
     <input
+      id="arrival-date"
       type="date"
       class="form-control mb-2"
       v-model="availabilityFilter.arrivalDate"
       :disabled="store.isCheckingAvailability"
     />
 
-    <label class="form-label small text-muted mb-1">Abreise</label>
+    <label for="departure-date" class="form-label small text-muted mb-1">Abreise</label>
     <input
+      id="departure-date"
       type="date"
       class="form-control mb-3"
       v-model="availabilityFilter.departureDate"

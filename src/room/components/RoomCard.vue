@@ -1,8 +1,8 @@
 <script setup>
-import {BCard, BRow, BCol, BButton} from "bootstrap-vue-next";
+import { BCard, BRow, BCol } from "bootstrap-vue-next";
 import RoomExtras from "./RoomExtras.vue";
 
-const props = defineProps({
+defineProps({
   room: {
     type: Object,
     required: true,
@@ -11,46 +11,43 @@ const props = defineProps({
 </script>
 
 <template>
-  <b-card
+  <BCard
     :title="room.name"
     :img-src="room.image?.src || 'https://picsum.photos/800/800/?blur'"
     :img-alt="room.image?.alt"
     img-top
     class="room-card shadow-sm"
   >
-    <b-row class="mb-4">
-      <b-col>
+    <BRow class="mb-4">
+      <BCol>
         <small class="text-muted d-block">
           Zimmer {{ room.number || "–" }} || {{ room.beds }} Betten
         </small>
-      </b-col>
-      <b-col cols="auto">
+      </BCol>
+      <BCol cols="auto">
         <span class="text fw-bold" id="room-price">
           {{ room.pricePerNight }} € / Nacht
         </span>
-      </b-col>
-    </b-row>
+      </BCol>
+    </BRow>
 
     <RoomExtras :extras="room.extras" />
-    <RouterLink :to="{ name: 'room', params: { id: room.id } }" class="button details-button" >
+    <RouterLink :to="{ name: 'room', params: { id: room.id } }" class="button details-button">
       Details
     </RouterLink>
-  </b-card>
+  </BCard>
 </template>
 
-<style>
-.room-card img {
+<style scoped>
+.room-card :deep(img) {
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.room-card {
-  background-color: #FFDAD5;
-}
-.details-button{
+
+.details-button {
   display: block;
   text-align: center;
   margin: 0 auto;
   color: #5a3d2e;
 }
-
 </style>

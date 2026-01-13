@@ -23,8 +23,8 @@ defineProps({
   </BCarousel>
 </template>
 
-<style>
-.carousel img {
+<style scoped>
+.carousel :deep(img) {
   height: 400px;
   object-fit: cover;
 }
