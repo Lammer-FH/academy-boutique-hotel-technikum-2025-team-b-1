@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <slot><!-- hier kommt die Liste (RoomList) --></slot>
+      <slot></slot>
     </div>
 
     <div class="mt-4">
@@ -13,9 +13,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'BaseList',
-  };
-</script>

@@ -70,8 +70,9 @@ watch(
   <BCard class="shadow-sm" header="Verfügbarkeit filtern">
     <BRow class="g-3 align-items-end">
       <BCol md="4">
-        <label class="form-label small text-muted mb-1">Anreise</label>
+        <label for="filter-arrival" class="form-label small text-muted mb-1">Anreise</label>
         <input
+            id="filter-arrival"
             type="date"
             v-model="arrival"
             :disabled="isCheckingAvailability"
@@ -80,8 +81,9 @@ watch(
       </BCol>
 
       <BCol md="4">
-        <label class="form-label small text-muted mb-1">Abreise</label>
+        <label for="filter-departure" class="form-label small text-muted mb-1">Abreise</label>
         <input
+            id="filter-departure"
             type="date"
             v-model="departure"
             :disabled="isCheckingAvailability"
@@ -129,10 +131,9 @@ watch(
   </BCard>
 </template>
 
-<style>
+<style scoped>
 #checkAvailabilityButton {
   background-color: #FFDAD5;
   color: black;
 }
-
 </style>

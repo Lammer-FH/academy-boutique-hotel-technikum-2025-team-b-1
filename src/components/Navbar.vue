@@ -33,7 +33,15 @@ function handleLogout() {
         Boutique Hotel Technikum
       </RouterLink>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu"
+        aria-expanded="false"
+        aria-label="Navigation öffnen"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
