@@ -27,11 +27,11 @@ const { reset } = bookingStore;
 const { loadRoom, loadRooms } = roomStore;
 
 const HOTEL = {
-  name: "Academy Boutique Hotel",
+  name: "Boutique Hotel Technikum",
   addressLine1: "Höchstädtplatz 6",
   addressLine2: "1200 Wien, Österreich",
   phone: "+43 1 234 56 78",
-  email: "rezeption@academy-boutique-hotel.at",
+  email: "info@hotel-technikum.at",
   checkIn: "ab 15:00",
   checkOut: "bis 11:00",
 };
@@ -312,25 +312,30 @@ onMounted(async () => {
 }
 
 @media print {
-  body * {
-    visibility: hidden !important;
+
+  @page {
+    margin: 12mm;
   }
 
-  .booking-confirmation-print,
-  .booking-confirmation-print * {
-    visibility: visible !important;
+
+  :global(header),
+  :global(footer),
+  :global(nav) {
+    display: none !important;
   }
 
-  .booking-confirmation-print {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+
+  :global(footer),
+  :global(.footer),
+  :global(.site-footer) {
+    position: static !important;
   }
+
 
   .no-print {
     display: none !important;
   }
+
 
   iframe,
   .ratio {
@@ -341,20 +346,32 @@ onMounted(async () => {
     display: block !important;
   }
 
-  a[href]:after {
-    content: "" !important;
+
+  .booking-confirmation-print {
+    position: static !important;
+    width: 100% !important;
   }
 
-  .card {
+
+  :global(.row) {
+    display: block !important;
+  }
+  :global([class^="col-"]),
+  :global([class*=" col-"]) {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+
+  :global(.card) {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  h2,
-  h3,
-  h4 {
-    break-after: avoid;
-    page-break-after: avoid;
+
+  a[href]:after {
+    content: "" !important;
   }
 }
+
 </style>

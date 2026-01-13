@@ -14,7 +14,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
     <section class="mt-4">
       <h2 class="h4">Adresse</h2>
-      <p>Höchstädtplatz<br>
+      <p>Höchstädtplatz 6<br>
         1200 Wien<br>
         Österreich</p>
     </section>
