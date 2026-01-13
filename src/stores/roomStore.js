@@ -1,8 +1,6 @@
 import {defineStore} from "pinia";
 import {ref, computed} from "vue";
-import axios from "axios";
-
-const baseURL = "https://boutique-hotel.helmuth-lammer.at/api/v1";
+import api from "@/services/api";
 
 const EXTRA_MAP = {
     bathroom: {label: "Eigenes Bad", type: "bathroom"},
@@ -51,8 +49,8 @@ const normalizeRoom = (room) => ({
 
 async function getAvailability(roomId, arrivalDate, departureDate) {
   try {
-    const response = await axios.get(
-      `${baseURL}/room/${roomId}/from/${arrivalDate}/to/${departureDate}`
+    const response = await api.get(
+      `/room/${roomId}/from/${arrivalDate}/to/${departureDate}`
     );
     return response.data.available;
   } catch (err) {
@@ -100,7 +98,7 @@ export const useRoomStore = defineStore("roomStore", () => {
     isLoading.value = true;
     error.value = null;
     try {
-      const res = await axios.get(`${baseURL}/rooms`);
+      const res = await api.get("/rooms");
       rooms.value = res.data.map(normalizeRoom);
     } catch (err) {
       error.value = err.message || "Failed to load rooms";
@@ -114,7 +112,7 @@ export const useRoomStore = defineStore("roomStore", () => {
     isLoading.value = true;
     error.value = null;
     try {
-      const res = await axios.get(`${baseURL}/rooms/${roomId}`);
+      const res = await api.get(`/rooms/${roomId}`);
       currentRoom.value = normalizeRoom(res.data);
     } catch (err) {
       error.value = err.message || "Failed to load room";

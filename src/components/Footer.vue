@@ -1,12 +1,12 @@
-<script setup lang="ts">
-import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
+<script setup>
+import { BContainer, BCardTitle, BCardText, BRow, BCol } from "bootstrap-vue-next";
 </script>
 
 <template>
-  <b-container fluid id="footer" class="text-center">
-    <b-card-title class="fw-bold mb-3">Kontakt</b-card-title>
+  <BContainer fluid id="footer" class="text-center">
+    <BCardTitle class="fw-bold mb-3">Kontakt</BCardTitle>
 
-    <b-card-text>
+    <BCardText>
       <ul class="list-unstyled">
         <li>Boutique Hotel Technikum</li>
         <li>Höchstädtplatz 6</li>
@@ -14,23 +14,23 @@ import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
         <li>Tel: +43 123 45678</li>
         <li>E-Mail: info@hotel-technikum.at</li>
       </ul>
-    </b-card-text>
+    </BCardText>
 
-    <b-row id="footerLinks" class="mt-3 justify-content-center">
-      <b-col cols="auto">
-        <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum </RouterLink>
-      </b-col>
-      <b-col cols="auto">|</b-col>
-      <b-col cols="auto">
-        <RouterLink class="footer-link" :to="{ name: 'about' }"> Über uns</RouterLink>
-      </b-col>
-    </b-row>
-    <br>
+    <BRow id="footerLinks" class="mt-3 justify-content-center">
+      <BCol cols="auto">
+        <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>
+      </BCol>
+      <BCol cols="auto">|</BCol>
+      <BCol cols="auto">
+        <RouterLink class="footer-link" :to="{ name: 'about' }">Über uns</RouterLink>
+      </BCol>
+    </BRow>
+    <br />
 
-    <b-card-text class="p-3 mt-3">
+    <BCardText class="p-3 mt-3">
       © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten
-    </b-card-text>
-  </b-container>
+    </BCardText>
+  </BContainer>
 </template>
 
 <style scoped>

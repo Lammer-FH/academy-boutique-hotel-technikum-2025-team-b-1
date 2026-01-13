@@ -13,9 +13,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     Carousel: typeof import('./src/components/Carousel.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
-    IBi0Circle: typeof import('~icons/bi/0-circle')['default']
-    IBiTv: typeof import('~icons/bi/tv')['default']
-    IBiTV: typeof import('~icons/bi/t-v')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

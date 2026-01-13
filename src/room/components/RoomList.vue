@@ -1,10 +1,10 @@
- <script setup>
+<script setup>
 import { computed, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { BRow, BCol, BSpinner, BPagination } from "bootstrap-vue-next";
 import { useRoomStore } from "@/stores/roomStore";
 import RoomCard from "./RoomCard.vue";
-import BaseList from "../../base/BaseList.vue";
+import BaseList from "@/base/BaseList.vue";
 import RoomAvailabilityFilter from "./RoomAvailabilityFilter.vue";
 
 const roomStore = useRoomStore();
@@ -45,11 +45,11 @@ onMounted(() => {
       </div>
 
       <div v-else-if="isBusy" class="d-flex justify-content-center py-4">
-        <b-spinner label="Lade Zimmer" />
+        <BSpinner label="Lade Zimmer" />
       </div>
 
-      <b-row v-else-if="paginatedRooms.length" class="g-4">
-        <b-col
+      <BRow v-else-if="paginatedRooms.length" class="g-4">
+        <BCol
           v-for="room in paginatedRooms"
           :key="room.id"
           cols="12"
@@ -57,8 +57,8 @@ onMounted(() => {
           lg="4"
         >
           <RoomCard :room="room" />
-        </b-col>
-      </b-row>
+        </BCol>
+      </BRow>
 
       <p v-else class="text-center text-muted py-4 mb-0">
         Derzeit sind keine Zimmer verfügbar.
@@ -66,7 +66,7 @@ onMounted(() => {
     </section>
 
     <template #pagination>
-      <b-pagination
+      <BPagination
         v-if="totalRooms > itemsPerPage"
         v-model="currentPage"
         :total-rows="totalRooms"
