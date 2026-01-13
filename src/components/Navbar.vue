@@ -1,10 +1,7 @@
 <script setup>
 const links = [
   { text: 'Zimmer', to: { name: 'rooms' } },
-  { text: 'Restaurant', href: '#restaurant' },
-  { text: 'Spa', href: '#spa' },
   { text: 'Über uns', to: { name: 'about' } },
-  { text: 'Kontakt', href: '#contact' },
 ];
 </script>
 
@@ -36,6 +33,7 @@ const links = [
               {{ link.text }}
             </a>
           </li>
+          <a class="nav-link" href="#contact">Kontakt</a>
         </ul>
         <button class="btn ms-lg-3" id="loginButton">Login</button>
       </div>

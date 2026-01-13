@@ -6,6 +6,7 @@ import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
   <b-container fluid id="footer" class="text-center">
     <b-card-title class="fw-bold mb-3">Kontakt</b-card-title>
 
+    <section id="contact">
     <b-card-text>
       <ul class="list-unstyled">
         <li>Boutique Hotel Technikum</li>
@@ -15,6 +16,7 @@ import {BContainer,BCardTitle,BCardText,BRow,BCol } from "bootstrap-vue-next";
         <li>E-Mail: info@hotel-technikum.at</li>
       </ul>
     </b-card-text>
+    </section>
 
     <b-row id="footerLinks" class="mt-3 justify-content-center">
       <b-col cols="auto">
