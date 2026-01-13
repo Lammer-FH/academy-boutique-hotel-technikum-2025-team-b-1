@@ -8,10 +8,7 @@ const { isLoggedIn, user } = storeToRefs(userStore);
 
 const links = [
   { text: 'Zimmer', to: { name: 'rooms' } },
-  { text: 'Restaurant', href: '#restaurant' },
-  { text: 'Spa', href: '#spa' },
   { text: 'Über uns', to: { name: 'about' } },
-  { text: 'Kontakt', href: '#contact' },
 ];
 
 function handleLogout() {
@@ -55,6 +52,7 @@ function handleLogout() {
               {{ link.text }}
             </a>
           </li>
+          <a class="nav-link" href="#contact">Kontakt</a>
         </ul>
 
         <div v-if="isLoggedIn" class="d-flex align-items-center ms-lg-3">
