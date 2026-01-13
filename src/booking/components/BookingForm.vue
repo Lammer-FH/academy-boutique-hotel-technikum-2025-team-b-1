@@ -147,13 +147,13 @@ function onSubmit() {
       </div>
 
       <div class="d-flex justify-content-between">
-        <BModal v-model="showRegister" title="Registrierung" no-footer no-close-on-backdrop
+        <BModal v-model="showRegister" title="Kunden-Registrierung" no-footer no-close-on-backdrop
                 no-close-on-esc>
           <RegistrationForm @success="showRegister = false; showSuccessModal = true"></RegistrationForm>
         </BModal>
-        <BButton type="button" id="registerButton" @click="openRegister">Registrieren</BButton>
+        <BButton type="button" id="registerButton" @click="openRegister">Als Kunde registrieren</BButton>
         <BButton type="submit" variant="primary">
-          Weiter zur Übersicht
+          Weiter als Gast
         </BButton>
       </div>
     </BForm>

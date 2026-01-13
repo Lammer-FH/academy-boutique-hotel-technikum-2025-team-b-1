@@ -19,6 +19,8 @@ export const useRegistrationStore = defineStore('registration', () => {
     const successValue = ref(null);
 
 
+    // This function validate if a value is available. If not an error message is generated and pushed into an
+    // array of errors. In the end a boolean value will be returned depending on the length of the array.
     function validate() {
         const errors = {};
 
@@ -45,13 +47,14 @@ export const useRegistrationStore = defineStore('registration', () => {
         }
 
         if (!password.value.trim()) {
-            errors.password = "Password ist erfrorderlich"
+            errors.password = "Password ist erforderlich"
         }
 
         validationErrors.value = errors;
         return Object.keys(errors).length === 0;
     }
 
+    // This function resets all values in the registration formular.
     function reset() {
         firstname.value = "";
         lastname.value = "";
@@ -62,9 +65,14 @@ export const useRegistrationStore = defineStore('registration', () => {
         validationErrors.value = {};
         errorMessages.value = null;
         isSubmitting.value = false;
-        successMessage.value = null;
+        successValue.value = null;
     }
 
+    // This function makes an API call. In the first place it calls the validate function to check the values,
+    // when the return value is false the function returns. Afterward it sets the value isSubmitting to deactivate the
+    // submitting button in the registration formular and to start the spinner action. When the API call was successful
+    // the successValue is true and the return value is true. At a failure an error is thrown. Finally, the isSubmitting
+    // value is set on false to activate the submitting button again and to stop the spinner action.
     async function register() {
         if (!validate()) {
             return false;
@@ -87,6 +95,7 @@ export const useRegistrationStore = defineStore('registration', () => {
         } catch (error) {
             successValue.value = false;
             errorMessages.value = "Es ist ein Fehler bei der Buchung aufgetreten.";
+            console.log(error)
             return false;
         } finally {
             isSubmitting.value = false;

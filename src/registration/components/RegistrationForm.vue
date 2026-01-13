@@ -5,7 +5,7 @@ import {
   BFormInput,
   BButton,
   BAlert,
-  BSpinner, BModal,
+  BSpinner
 } from "bootstrap-vue-next";
 import {storeToRefs} from "pinia";
 import {useRegistrationStore} from "@/stores/registrationStore";
@@ -16,6 +16,7 @@ const registrationStore = useRegistrationStore();
 
 const showPassword = ref(false);
 
+// We need to define an emit to call it later in the onSubmit function.
 const emit = defineEmits(["success"]);
 
 const {
@@ -29,8 +30,11 @@ const {
   errorMessages,
 } = storeToRefs(registrationStore)
 
+// This line of code is needed to destruct the function out of the instance.
 const {register} = registrationStore
 
+// Starts the registration process.
+// If the registration was successful, a "success" event is emitted to the parent component.
 async function onSubmit() {
   const ok = await register();
   if (ok) {
@@ -43,7 +47,6 @@ async function onSubmit() {
 <template>
   <div>
     <BAlert v-if="errorMessages" variant="danger" show class="mb-3">{{ errorMessages }}</BAlert>
-
     <BForm @submit.prevent="onSubmit" novalidate>
       <BFormGroup
           label="Vorname"
@@ -55,7 +58,8 @@ async function onSubmit() {
             id="registration-firstname"
             v-model="firstname"
             :state="validationErrors.firstname ? false : null"
-            required/>
+            required
+            maxLength="20"/>
         <small v-if="validationErrors.firstname" class="text-danger">
           {{ validationErrors.firstname }}
         </small>
@@ -71,6 +75,7 @@ async function onSubmit() {
             v-model="lastname"
             :state="validationErrors.lastname ? false : null"
             required
+            maxLength="20"
         />
         <small v-if="validationErrors.lastname" class="text-danger">
           {{ validationErrors.lastname }}
@@ -87,6 +92,7 @@ async function onSubmit() {
             v-model="username"
             :state="validationErrors.username ? false : null"
             required
+            maxLength="25"
         />
         <small v-if="validationErrors.username" class="text-danger">
           {{ validationErrors.username }}
@@ -105,6 +111,7 @@ async function onSubmit() {
               v-model="password"
               :state="validationErrors.password ? false : null"
               required
+              maxLength="20"
           />
           <button
               type="button"
@@ -130,6 +137,7 @@ async function onSubmit() {
             v-model="email"
             :state="validationErrors.email ? false : null"
             required
+            maxLength="30"
         />
         <small v-if="validationErrors.email" class="text-danger">
           {{ validationErrors.email }}
@@ -147,6 +155,7 @@ async function onSubmit() {
             v-model="emailConfirm"
             :state="validationErrors.emailConfirm ? false : null"
             required
+            maxLength="30"
         />
         <small v-if="validationErrors.emailConfirm" class="text-danger">
           {{ validationErrors.emailConfirm }}
