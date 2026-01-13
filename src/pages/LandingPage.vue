@@ -18,8 +18,8 @@ const imagesRooms = [
 
 const imagesRestaurant = [
   new URL('@/assets/pictures/hotel-restaurant/csm_Anbau_Restaurant_Panoramarestaurant_mit_moderner_Architektur_Oberjoch_Allgaeu_22d7660774.jpg.webp', import.meta.url).href,
-  new URL('@/assets/pictures/hotel-restaurant/Hotel_Galantha_GH100498_small_©Gregor_Hofbauer.jpg', import.meta.url).href,
-  new URL('@/assets/pictures/hotel-restaurant/Hotel_Galantha_GH109162_small_©Gregor_Hofbauer_2023-05-31-135931_syzy.jpg', import.meta.url).href,
+  new URL('@/assets/pictures/hotel-restaurant/Hotel2.jpg', import.meta.url).href,
+  new URL('@/assets/pictures/hotel-restaurant/Hotel_Galantha_GH100498_small_┬®Gregor_Hofbauer.jpg', import.meta.url).href,
   new URL('@/assets/pictures/hotel-restaurant/Restaurant-Hotel_Galantha_GH100436_small_heller-min_2023-05-31-144242_pzun.jpg', import.meta.url).href
 ];
 
