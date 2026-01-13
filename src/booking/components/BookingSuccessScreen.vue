@@ -310,8 +310,47 @@ onMounted(async () => {
   font-weight: 600;
   line-height: 1.2;
 }
+</style>
+
+<style>
 
 @media print {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Auch häufige Wrapper-Klassen (je nach DefaultLayout) */
+  main,
+  .content,
+  .layout,
+  .wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Card etwas kompakter, damit weniger Seiten */
+  .card-body {
+    padding: 10px !important;
+  }
+
+  /* Überschriften/Abstände reduzieren */
+  .mb-4 { margin-bottom: 10px !important; }
+  .mt-4 { margin-top: 10px !important; }
+  .gy-4 { --bs-gutter-y: 10px !important; }
+
+  /* Wenn du willst: Alert kompakter */
+  .alert {
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+  }
 
   @page {
     margin: 12mm;
@@ -372,6 +411,8 @@ onMounted(async () => {
   a[href]:after {
     content: "" !important;
   }
+
+
 }
 
 </style>
