@@ -8,7 +8,7 @@ export const useUserStore = defineStore("userStore", () => {
   const isLoading = ref(false);
   const error = ref(null);
 
-  const isLoggedIn = computed(() => !!token.value);
+  const isLoggedIn = computed(() => Boolean(token.value) && Boolean(user.value));
 
   async function login(email, password) {
     isLoading.value = true;
@@ -49,7 +49,7 @@ export const useUserStore = defineStore("userStore", () => {
 
   async function fetchUser() {
     if (!token.value) return;
-
+    isLoading.value = true;
     try {
       const response = await api.get("/user/");
       user.value = response.data;
@@ -58,6 +58,8 @@ export const useUserStore = defineStore("userStore", () => {
       if (err.response?.status === 401) {
         logout();
       }
+    } finally {
+      isLoading.value = false;
     }
   }
 
