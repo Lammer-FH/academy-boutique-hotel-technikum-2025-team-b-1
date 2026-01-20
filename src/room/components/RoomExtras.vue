@@ -30,11 +30,11 @@ const iconMap = {
 <template>
   <div class="d-flex flex-wrap gap-2 align-items-center">
     <div
-      v-for="extra in extras"
-      :key="extra.id"
-      class="d-flex align-items-center gap-2 text-muted"
+        v-for="extra in extras"
+        :key="extra.id"
+        class="d-flex align-items-center gap-2 text-muted"
     >
-      <component :is="iconMap[extra.type]" class="icon" />
+      <component :is="iconMap[extra.type]" class="icon"/>
       <span class="small">{{ extra.label }}</span>
     </div>
   </div>

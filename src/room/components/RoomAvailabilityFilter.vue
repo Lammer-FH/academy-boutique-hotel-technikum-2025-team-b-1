@@ -1,14 +1,7 @@
 <script setup>
 import {computed, ref, watch} from "vue";
 import {storeToRefs} from "pinia";
-import {
-  BAlert,
-  BButton,
-  BCard,
-  BCol,
-  BRow,
-  BSpinner,
-} from "bootstrap-vue-next";
+import {BAlert, BButton, BCard, BCol, BRow, BSpinner,} from "bootstrap-vue-next";
 import {useRoomStore} from "@/stores/roomStore";
 
 const roomStore = useRoomStore();

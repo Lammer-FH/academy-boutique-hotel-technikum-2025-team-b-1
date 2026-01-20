@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import {defineStore} from "pinia";
+import {computed, ref} from "vue";
 import api from "@/services/api";
-import { useUserStore } from "@/stores/userStore";
+import {useUserStore} from "@/stores/userStore";
 
 export const STEPS = {
     start: 'start',

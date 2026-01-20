@@ -1,18 +1,11 @@
 <script setup>
-import { onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
-import { storeToRefs } from "pinia";
-import {
-  BCol,
-  BRow,
-  BCard,
-  BCardHeader,
-  BCardBody,
-  BSpinner,
-} from "bootstrap-vue-next";
+import {computed, onMounted} from "vue";
+import {useRoute} from "vue-router";
+import {storeToRefs} from "pinia";
+import {BCard, BCardBody, BCardHeader, BCol, BRow, BSpinner,} from "bootstrap-vue-next";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
-import { useRoomStore } from "@/stores/roomStore";
-import { useBookingStore, STEPS } from "@/stores/bookingStore";
+import {useRoomStore} from "@/stores/roomStore";
+import {STEPS, useBookingStore} from "@/stores/bookingStore";
 import BookingForm from "./BookingForm.vue";
 import BookingReviewScreen from "./BookingReviewScreen.vue";
 import BookingSuccessScreen from "./BookingSuccessScreen.vue";
@@ -21,10 +14,10 @@ const route = useRoute();
 const roomStore = useRoomStore();
 const bookingStore = useBookingStore();
 
-const { currentRoom, isLoading, errorMessage: roomError } =
+const {currentRoom, isLoading, errorMessage: roomError} =
     storeToRefs(roomStore);
 
-const { step, arrivalDate, departureDate } = storeToRefs(bookingStore);
+const {step, arrivalDate, departureDate} = storeToRefs(bookingStore);
 
 onMounted(() => {
   const roomId = route.params.id;
@@ -59,9 +52,9 @@ const pageTitle = computed(() => {
           </BCardHeader>
 
           <BCardBody>
-            <BookingForm v-if="step === STEPS.start" />
-            <BookingReviewScreen v-else-if="step === STEPS.review" />
-            <BookingSuccessScreen v-else-if="step === STEPS.summary" />
+            <BookingForm v-if="step === STEPS.start"/>
+            <BookingReviewScreen v-else-if="step === STEPS.review"/>
+            <BookingSuccessScreen v-else-if="step === STEPS.summary"/>
           </BCardBody>
         </BCard>
       </BCol>
@@ -76,7 +69,7 @@ const pageTitle = computed(() => {
             </div>
 
             <div v-else-if="isLoading" class="text-center py-3">
-              <BSpinner small label="Lade Zimmer..." />
+              <BSpinner small label="Lade Zimmer..."/>
             </div>
 
             <div v-else-if="currentRoom">
@@ -90,7 +83,7 @@ const pageTitle = computed(() => {
                 {{ currentRoom.description }}
               </p>
 
-              <hr />
+              <hr/>
 
               <p class="mb-1 text-muted small">Reisezeitraum</p>
               <p class="fw-semibold mb-0">

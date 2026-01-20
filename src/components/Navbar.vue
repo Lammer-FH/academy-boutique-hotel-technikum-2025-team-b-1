@@ -1,16 +1,15 @@
 <script setup>
-import { storeToRefs } from "pinia";
-import { BButton, BSpinner } from "bootstrap-vue-next";
-import { useUserStore } from "@/stores/userStore";
-import { useToast } from 'bootstrap-vue-next'
+import {storeToRefs} from "pinia";
+import {BButton, BSpinner, useToast} from "bootstrap-vue-next";
+import {useUserStore} from "@/stores/userStore";
 
-const { create: showToast } = useToast()
+const {create: showToast} = useToast()
 const userStore = useUserStore();
-const { isLoggedIn, isLoading, user } = storeToRefs(userStore);
+const {isLoggedIn, isLoading, user} = storeToRefs(userStore);
 
 const links = [
-  { text: 'Zimmer', to: { name: 'rooms' } },
-  { text: 'Über uns', to: { name: 'about' } },
+  {text: 'Zimmer', to: {name: 'rooms'}},
+  {text: 'Über uns', to: {name: 'about'}},
 ];
 
 function handleLogout() {
@@ -38,13 +37,13 @@ function handleLogout() {
       </RouterLink>
 
       <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarMenu"
-        aria-controls="navbarMenu"
-        aria-expanded="false"
-        aria-label="Navigation öffnen"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Navigation öffnen"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -62,15 +61,15 @@ function handleLogout() {
           <a class="nav-link" href="#contact">Kontakt</a>
         </ul>
 
-        <BSpinner v-if="isLoading" small label="Einloggen..." />
+        <BSpinner v-if="isLoading" small label="Einloggen..."/>
         <template v-else>
           <div v-if="isLoggedIn" class="d-flex align-items-center ms-lg-3">
             <span class="user-greeting me-2">
               Hallo, {{ user.firstname }}
             </span>
-            <BButton 
-              class="auth-button"
-              @click="handleLogout"
+            <BButton
+                class="auth-button"
+                @click="handleLogout"
             >
               Abmelden
             </BButton>

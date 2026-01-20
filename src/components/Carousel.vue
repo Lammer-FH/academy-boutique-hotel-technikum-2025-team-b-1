@@ -1,9 +1,9 @@
 <script setup>
-import {BCarousel,BCarouselSlide} from 'bootstrap-vue-next'
+import {BCarousel, BCarouselSlide} from 'bootstrap-vue-next'
 
 defineProps({
-  carouselId: { type: String, required: true },
-  images: { type: Array, required: true }
+  carouselId: {type: String, required: true},
+  images: {type: Array, required: true}
 });
 </script>
 

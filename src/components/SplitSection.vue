@@ -1,12 +1,12 @@
 <script setup>
-import { BContainer, BRow, BCol, BImg } from 'bootstrap-vue-next'
+import {BCol, BContainer, BImg, BRow} from 'bootstrap-vue-next'
 
 const props = defineProps({
-  title: { type: String, required: true },
-  textMuted: { type: String, default: "" },
-  img: { type: String, required: true },
-  reverse: { type: Boolean, default: false },
-  bg: { type: String, default: "transparent" },
+  title: {type: String, required: true},
+  textMuted: {type: String, default: ""},
+  img: {type: String, required: true},
+  reverse: {type: Boolean, default: false},
+  bg: {type: String, default: "transparent"},
 })
 </script>
 
@@ -29,7 +29,7 @@ const props = defineProps({
         <BCol cols="12" lg="6">
           <h2 class="h3 mb-2">{{ title }}</h2>
           <p v-if="textMuted" class="text-muted">{{ textMuted }}</p>
-          <slot />
+          <slot/>
         </BCol>
       </BRow>
     </BContainer>

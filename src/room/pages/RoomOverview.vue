@@ -11,6 +11,6 @@ import RoomList from "@/room/components/RoomList.vue";
         Wählen Sie aus unseren liebevoll gestalteten Zimmern.
       </p>
     </header>
-    <RoomList />
+    <RoomList/>
   </DefaultLayout>
 </template>

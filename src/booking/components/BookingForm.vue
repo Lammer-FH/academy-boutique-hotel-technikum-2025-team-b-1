@@ -1,12 +1,5 @@
 <script setup>
-import {
-  BForm,
-  BFormGroup,
-  BFormInput,
-  BFormCheckbox,
-  BButton,
-  BAlert, BModal,
-} from "bootstrap-vue-next";
+import {BAlert, BButton, BForm, BFormCheckbox, BFormGroup, BFormInput, BModal,} from "bootstrap-vue-next";
 import {storeToRefs} from "pinia";
 import {useBookingStore} from "@/stores/bookingStore";
 import {useRegistrationStore} from "../../stores/registrationStore";

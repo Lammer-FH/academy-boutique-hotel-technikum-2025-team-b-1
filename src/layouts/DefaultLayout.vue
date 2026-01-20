@@ -1,17 +1,17 @@
 <script setup>
-import { BContainer } from "bootstrap-vue-next";
+import {BContainer} from "bootstrap-vue-next";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 </script>
 
 <template>
   <div>
-    <Navbar />
+    <Navbar/>
     <BContainer>
       <main class="container-fluid p-3 content">
-        <slot />
+        <slot/>
       </main>
     </BContainer>
-    <Footer />
+    <Footer/>
   </div>
 </template>

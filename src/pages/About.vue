@@ -34,7 +34,8 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h3 class="h5 card-title">Regional & frisch</h3>
-                <p class="card-text">Zutaten und Partner aus Wien & Umgebung: wir stehen für kurze Wege und volle Qualität.</p>
+                <p class="card-text">Zutaten und Partner aus Wien & Umgebung: wir stehen für kurze Wege und volle
+                  Qualität.</p>
               </div>
             </div>
           </div>
@@ -42,7 +43,8 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h3 class="h5 card-title">Nachhaltig gedacht</h3>
-                <p class="card-text">Energieeffizienz, Refill-Stationen, Zero-Waste-Ansatz: Bei uns steht Nachhaltigkeit im Vordergrund.</p>
+                <p class="card-text">Energieeffizienz, Refill-Stationen, Zero-Waste-Ansatz: Bei uns steht Nachhaltigkeit
+                  im Vordergrund.</p>
               </div>
             </div>
           </div>
@@ -50,7 +52,8 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h3 class="h5 card-title">Persönlicher Service</h3>
-                <p class="card-text">Kleines Team, kurze Wege: Wir sind ehrlich, herzlich und rund um die Uhr für Sie da.</p>
+                <p class="card-text">Kleines Team, kurze Wege: Wir sind ehrlich, herzlich und rund um die Uhr für Sie
+                  da.</p>
               </div>
             </div>
           </div>
@@ -58,7 +61,8 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h3 class="h5 card-title">Beste Lage</h3>
-                <p class="card-text">Zentral & ruhig: Unser Hotel besticht mit der Besten Lage für Kultur, Business und Stadtentdeckungen und ist dennoch in einer ruhigen Lage.</p>
+                <p class="card-text">Zentral & ruhig: Unser Hotel besticht mit der Besten Lage für Kultur, Business und
+                  Stadtentdeckungen und ist dennoch in einer ruhigen Lage.</p>
               </div>
             </div>
           </div>
@@ -74,7 +78,8 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
     >
       <p>
         Gemeinsam haben sie ein Hotel geschaffen, das modernes Boutique-Ambiente mit Wiener Charme vereint.
-        Ihr Ziel: ein Ort, an dem sich Stil und Herzlichkeit begegnen. Das haben sie im Boutiquehotel Technikum mit viel Liebe zum Detail,
+        Ihr Ziel: ein Ort, an dem sich Stil und Herzlichkeit begegnen. Das haben sie im Boutiquehotel Technikum mit viel
+        Liebe zum Detail,
         nachhaltigem Denken und einem klaren Gespür für Atmosphäre vereint.
       </p>
       <p>
@@ -104,10 +109,8 @@ const imgBooking = new URL('@/assets/pictures/hotel-zimmer/STRJU-P0020-One-King-
   width: 100%;
   min-height: 60vh;
   color: white;
-  background:
-      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("src/assets/pictures/hotel-fotos/726816457.jpg")
-      center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("src/assets/pictures/hotel-fotos/726816457.jpg") center/cover no-repeat;
 }
 
 .overlay {

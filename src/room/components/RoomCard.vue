@@ -1,5 +1,5 @@
 <script setup>
-import { BCard, BRow, BCol } from "bootstrap-vue-next";
+import {BCard, BCol, BRow} from "bootstrap-vue-next";
 import RoomExtras from "./RoomExtras.vue";
 
 defineProps({
@@ -12,11 +12,11 @@ defineProps({
 
 <template>
   <BCard
-    :title="room.name"
-    :img-src="room.image?.src || 'https://picsum.photos/800/800/?blur'"
-    :img-alt="room.image?.alt"
-    img-top
-    class="room-card shadow-sm"
+      :title="room.name"
+      :img-src="room.image?.src || 'https://picsum.photos/800/800/?blur'"
+      :img-alt="room.image?.alt"
+      img-top
+      class="room-card shadow-sm"
   >
     <BRow class="mb-4">
       <BCol>
@@ -31,7 +31,7 @@ defineProps({
       </BCol>
     </BRow>
 
-    <RoomExtras :extras="room.extras" />
+    <RoomExtras :extras="room.extras"/>
     <RouterLink :to="{ name: 'room', params: { id: room.id } }" class="button details-button">
       Details
     </RouterLink>

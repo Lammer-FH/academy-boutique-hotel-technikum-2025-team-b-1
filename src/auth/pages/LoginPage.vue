@@ -139,7 +139,9 @@ async function handleSubmit() {
                 <BSpinner v-if="isLoading" small class="me-2"/>
                 {{ isLoading ? "Wird angemeldet..." : "Anmelden" }}
               </BButton>
-              <BButton type="submit" class="w-100 mt-4 login-button" id="registerButton" @click="openRegister">Registrieren</BButton>
+              <BButton type="submit" class="w-100 mt-4 login-button" id="registerButton" @click="openRegister">
+                Registrieren
+              </BButton>
             </div>
           </BForm>
           <BModal v-model="showSuccessModal"

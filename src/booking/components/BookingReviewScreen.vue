@@ -1,14 +1,8 @@
 <script setup>
-import {
-  BButton,
-  BAlert,
-  BSpinner,
-  BRow,
-  BCol,
-} from "bootstrap-vue-next";
-import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
-import { useBookingStore } from "@/stores/bookingStore";
+import {BAlert, BButton, BCol, BRow, BSpinner,} from "bootstrap-vue-next";
+import {storeToRefs} from "pinia";
+import {useRouter} from "vue-router";
+import {useBookingStore} from "@/stores/bookingStore";
 
 const router = useRouter();
 const bookingStore = useBookingStore();
@@ -19,7 +13,7 @@ const {
   errorMessage,
 } = storeToRefs(bookingStore);
 
-const { backToStart, submit } = bookingStore;
+const {backToStart, submit} = bookingStore;
 
 function onConfirm() {
   submit();

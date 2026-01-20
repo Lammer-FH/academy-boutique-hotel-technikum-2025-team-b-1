@@ -1,16 +1,16 @@
 <script setup>
-import { BContainer, BButton } from "bootstrap-vue-next";
+import {BButton, BContainer} from "bootstrap-vue-next";
 import BootstrapCarousel from "@/components/Carousel.vue";
 
 defineProps({
-  sectionTitle: { type: String, required: true },
-  sectionSubtitle: { type: String, required: true },
-  sectionText: { type: String, required: true },
-  buttonText: { type: String},
-  buttonLink: { type: String, default: "#" },
-  buttonId: { type: String},
-  images: { type: Array, required: true },
-  carouselId: { type: String, required: true },
+  sectionTitle: {type: String, required: true},
+  sectionSubtitle: {type: String, required: true},
+  sectionText: {type: String, required: true},
+  buttonText: {type: String},
+  buttonLink: {type: String, default: "#"},
+  buttonId: {type: String},
+  images: {type: Array, required: true},
+  carouselId: {type: String, required: true},
 });
 </script>
 
@@ -20,7 +20,7 @@ defineProps({
     <h2>{{ sectionTitle }}</h2>
 
     <div class="my-4">
-      <BootstrapCarousel :carousel-id="carouselId" :images="images" />
+      <BootstrapCarousel :carousel-id="carouselId" :images="images"/>
     </div>
 
     <h2>{{ sectionSubtitle }}</h2>

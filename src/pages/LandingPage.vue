@@ -34,21 +34,21 @@ const imagesSpa = [
 <template>
   <DefaultLayout>
     <BootstrapCarousel carousel-id="carouselLandingPageMain" :images="imagesLanding"/>
-      <div class="container-fluid text-center" id="containerWelcomeText">
-        <h2>Willkommen im Boutique Hotel Technikum</h2>
-        <p>Erleben Sie Stil, Komfort und Wohlfühlatmosphäre inmitten moderner Eleganz.<br>Genießen Sie entspannte
-          Stunden, kulinarische Highlights und erstklassigen Service – Ihr Rückzugsort für unvergessliche Momente.</p>
-      </div>
+    <div class="container-fluid text-center" id="containerWelcomeText">
+      <h2>Willkommen im Boutique Hotel Technikum</h2>
+      <p>Erleben Sie Stil, Komfort und Wohlfühlatmosphäre inmitten moderner Eleganz.<br>Genießen Sie entspannte
+        Stunden, kulinarische Highlights und erstklassigen Service – Ihr Rückzugsort für unvergessliche Momente.</p>
+    </div>
 
-      <div class="container-fluid text-center" id="containerConceptText">
-        <h2>Unser Konzept</h2>
-        <p>Im Boutique Hotel Technikum vereinen wir Nachhaltigkeit mit einer modernen, frischen Art, Gastfreundschaft zu
-          leben. Unser engagiertes Team sorgt mit Leidenschaft und Liebe zum Detail dafür, dass sich jeder Gast bei uns
-          rundum wohlfühlt – von der Einrichtung über das Essen bis hin zu kleinen, besonderen Momenten. Wir setzen auf
-          regionale Produkte, achtsamen Umgang mit Ressourcen und ein Design, das Natürlichkeit und Komfort verbindet.
-          Persönlicher Service und ein herzliches Miteinander stehen für uns im Mittelpunkt – damit Ihr Aufenthalt bei
-          uns zu einer echten Auszeit wird.</p>
-      </div>
+    <div class="container-fluid text-center" id="containerConceptText">
+      <h2>Unser Konzept</h2>
+      <p>Im Boutique Hotel Technikum vereinen wir Nachhaltigkeit mit einer modernen, frischen Art, Gastfreundschaft zu
+        leben. Unser engagiertes Team sorgt mit Leidenschaft und Liebe zum Detail dafür, dass sich jeder Gast bei uns
+        rundum wohlfühlt – von der Einrichtung über das Essen bis hin zu kleinen, besonderen Momenten. Wir setzen auf
+        regionale Produkte, achtsamen Umgang mit Ressourcen und ein Design, das Natürlichkeit und Komfort verbindet.
+        Persönlicher Service und ein herzliches Miteinander stehen für uns im Mittelpunkt – damit Ihr Aufenthalt bei
+        uns zu einer echten Auszeit wird.</p>
+    </div>
 
     <SectionWithCarousel
         section-title="Unsere Zimmer"

@@ -1,5 +1,5 @@
 <script setup>
-import { BContainer, BCardTitle, BCardText, BRow, BCol } from "bootstrap-vue-next";
+import {BCardText, BCardTitle, BCol, BContainer, BRow} from "bootstrap-vue-next";
 </script>
 
 <template>
@@ -25,7 +25,7 @@ import { BContainer, BCardTitle, BCardText, BRow, BCol } from "bootstrap-vue-nex
         <RouterLink class="footer-link" :to="{ name: 'about' }">Über uns</RouterLink>
       </BCol>
     </BRow>
-    <br />
+    <br/>
 
     <BCardText class="p-3 mt-3">
       © 2025 Boutique Hotel Technikum – Alle Rechte vorbehalten

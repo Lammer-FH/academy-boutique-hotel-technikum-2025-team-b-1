@@ -1,23 +1,18 @@
 <script setup>
-import { computed, onMounted, watch } from "vue";
-import { useRoute, RouterLink } from "vue-router";
-import { storeToRefs } from "pinia";
-import {
-  BBadge,
-  BCol,
-  BRow,
-  BSpinner,
-} from "bootstrap-vue-next";
+import {computed, onMounted, watch} from "vue";
+import {RouterLink, useRoute} from "vue-router";
+import {storeToRefs} from "pinia";
+import {BBadge, BCol, BRow, BSpinner,} from "bootstrap-vue-next";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import RoomExtras from "@/room/components/RoomExtras.vue";
 import RoomAvailabilityCard from "@/room/components/RoomAvailabilityCard.vue";
-import { useRoomStore } from "@/stores/roomStore";
+import {useRoomStore} from "@/stores/roomStore";
 
 const route = useRoute();
 const roomStore = useRoomStore();
-const { currentRoom, isLoading, error: errorMessage } =
-  storeToRefs(roomStore);
-const { loadRoom } = roomStore;
+const {currentRoom, isLoading, error: errorMessage} =
+    storeToRefs(roomStore);
+const {loadRoom} = roomStore;
 
 const roomId = computed(() => Number(route.params.id));
 
@@ -29,13 +24,13 @@ const fetchRoom = () => {
 
 onMounted(fetchRoom);
 watch(
-  () => route.params.id,
-  () => fetchRoom()
+    () => route.params.id,
+    () => fetchRoom()
 );
 
 const heroImage = computed(
-  () =>
-    currentRoom.value?.image?.src || "https://picsum.photos/1200/800/?blur"
+    () =>
+        currentRoom.value?.image?.src || "https://picsum.photos/1200/800/?blur"
 );
 </script>
 
@@ -58,10 +53,10 @@ const heroImage = computed(
     </div>
 
     <div
-      v-else-if="isLoading || !currentRoom"
-      class="d-flex justify-content-center py-5"
+        v-else-if="isLoading || !currentRoom"
+        class="d-flex justify-content-center py-5"
     >
-      <BSpinner label="Lade Zimmerdetails" />
+      <BSpinner label="Lade Zimmerdetails"/>
     </div>
 
     <div v-else>
@@ -69,9 +64,9 @@ const heroImage = computed(
         <BCol lg="8">
           <div class="ratio ratio-16x9 mb-4 rounded overflow-hidden shadow-sm">
             <img
-              :src="heroImage"
-              :alt="currentRoom.image?.alt || currentRoom.name"
-              class="w-100 h-100 object-fit-cover"
+                :src="heroImage"
+                :alt="currentRoom.image?.alt || currentRoom.name"
+                class="w-100 h-100 object-fit-cover"
             />
           </div>
 
@@ -86,7 +81,7 @@ const heroImage = computed(
                 <BBadge pill variant="secondary">{{ currentRoom.beds }}</BBadge>
               </div>
             </div>
-            <RoomExtras :extras="currentRoom.extras" />
+            <RoomExtras :extras="currentRoom.extras"/>
           </section>
 
           <section>
@@ -102,7 +97,7 @@ const heroImage = computed(
         </BCol>
 
         <BCol lg="4">
-          <RoomAvailabilityCard :room-id="currentRoom.id" />
+          <RoomAvailabilityCard :room-id="currentRoom.id"/>
         </BCol>
       </BRow>
     </div>

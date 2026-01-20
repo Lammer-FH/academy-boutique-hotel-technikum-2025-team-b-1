@@ -1,30 +1,21 @@
 <script setup>
-import { computed, onMounted } from "vue";
-import { RouterLink } from "vue-router";
-import { storeToRefs } from "pinia";
-import {
-  BButton,
-  BAlert,
-  BRow,
-  BCol,
-  BCard,
-  BCardBody,
-  BCardHeader,
-  BCardImg,
-} from "bootstrap-vue-next";
+import {computed, onMounted} from "vue";
+import {RouterLink} from "vue-router";
+import {storeToRefs} from "pinia";
+import {BAlert, BButton, BCard, BCardBody, BCardHeader, BCardImg, BCol, BRow,} from "bootstrap-vue-next";
 
-import { useBookingStore } from "@/stores/bookingStore";
-import { useRoomStore } from "@/stores/roomStore";
+import {useBookingStore} from "@/stores/bookingStore";
+import {useRoomStore} from "@/stores/roomStore";
 import RoomExtras from "@/room/components/RoomExtras.vue";
 
 const bookingStore = useBookingStore();
 const roomStore = useRoomStore();
 
-const { bookingSummary } = storeToRefs(bookingStore);
-const { currentRoom, rooms } = storeToRefs(roomStore);
+const {bookingSummary} = storeToRefs(bookingStore);
+const {currentRoom, rooms} = storeToRefs(roomStore);
 
-const { reset } = bookingStore;
-const { loadRoom, loadRooms } = roomStore;
+const {reset} = bookingStore;
+const {loadRoom, loadRooms} = roomStore;
 
 const HOTEL = {
   name: "Boutique Hotel Technikum",
@@ -144,7 +135,7 @@ onMounted(async () => {
               {{ bookingSummary.breakfast ? "Ja" : "Nein" }}
             </p>
 
-            <hr class="my-3" />
+            <hr class="my-3"/>
 
             <h4 class="h6 text-muted mb-2">Ihre Angaben</h4>
             <p class="mb-1">
@@ -181,7 +172,7 @@ onMounted(async () => {
               {{ roomDisplayName }}
             </h4>
 
-            <RoomExtras v-if="roomForDisplay.extras?.length" :extras="roomForDisplay.extras" />
+            <RoomExtras v-if="roomForDisplay.extras?.length" :extras="roomForDisplay.extras"/>
 
             <p v-if="roomForDisplay.description" class="mt-2 mb-0">
               {{ roomForDisplay.description }}
@@ -205,17 +196,17 @@ onMounted(async () => {
                 <h4 class="h6 mb-2">Adresse</h4>
                 <p class="mb-1 fw-semibold">{{ HOTEL.name }}</p>
                 <p class="mb-0">
-                  {{ HOTEL.addressLine1 }}<br />
+                  {{ HOTEL.addressLine1 }}<br/>
                   {{ HOTEL.addressLine2 }}
                 </p>
 
-                <hr class="my-3" />
+                <hr class="my-3"/>
 
                 <h4 class="h6 mb-2">Check-in / Check-out</h4>
                 <p class="mb-1"><strong>Check-in:</strong> {{ HOTEL.checkIn }}</p>
                 <p class="mb-0"><strong>Check-out:</strong> {{ HOTEL.checkOut }}</p>
 
-                <hr class="my-3" />
+                <hr class="my-3"/>
 
                 <h4 class="h6 mb-2">Öffentliche Anreise (Zug/Öffi)</h4>
                 <ul class="mb-2">
@@ -342,9 +333,17 @@ onMounted(async () => {
   }
 
   /* Überschriften/Abstände reduzieren */
-  .mb-4 { margin-bottom: 10px !important; }
-  .mt-4 { margin-top: 10px !important; }
-  .gy-4 { --bs-gutter-y: 10px !important; }
+  .mb-4 {
+    margin-bottom: 10px !important;
+  }
+
+  .mt-4 {
+    margin-top: 10px !important;
+  }
+
+  .gy-4 {
+    --bs-gutter-y: 10px !important;
+  }
 
   /* Wenn du willst: Alert kompakter */
   .alert {
@@ -395,6 +394,7 @@ onMounted(async () => {
   :global(.row) {
     display: block !important;
   }
+
   :global([class^="col-"]),
   :global([class*=" col-"]) {
     max-width: 100% !important;

@@ -1,8 +1,8 @@
 <script setup>
-import { computed, onMounted } from "vue";
-import { storeToRefs } from "pinia";
-import { BRow, BCol, BSpinner, BPagination } from "bootstrap-vue-next";
-import { useRoomStore } from "@/stores/roomStore";
+import {computed, onMounted} from "vue";
+import {storeToRefs} from "pinia";
+import {BCol, BPagination, BRow, BSpinner} from "bootstrap-vue-next";
+import {useRoomStore} from "@/stores/roomStore";
 import RoomCard from "./RoomCard.vue";
 import BaseList from "@/base/BaseList.vue";
 import RoomAvailabilityFilter from "./RoomAvailabilityFilter.vue";
@@ -20,13 +20,13 @@ const {
   error: errorMessage,
 } = storeToRefs(roomStore);
 
-const { loadRooms } = roomStore;
+const {loadRooms} = roomStore;
 
 const combinedError = computed(
-  () => availabilityError.value || errorMessage.value
+    () => availabilityError.value || errorMessage.value
 );
 const isBusy = computed(
-  () => isLoading.value || isCheckingAvailability.value
+    () => isLoading.value || isCheckingAvailability.value
 );
 
 onMounted(() => {
@@ -37,7 +37,7 @@ onMounted(() => {
 <template>
   <BaseList>
     <template #filters>
-      <RoomAvailabilityFilter />
+      <RoomAvailabilityFilter/>
     </template>
     <section>
       <div v-if="combinedError" class="alert alert-danger" role="alert">
@@ -45,18 +45,18 @@ onMounted(() => {
       </div>
 
       <div v-else-if="isBusy" class="d-flex justify-content-center py-4">
-        <BSpinner label="Lade Zimmer" />
+        <BSpinner label="Lade Zimmer"/>
       </div>
 
       <BRow v-else-if="paginatedRooms.length" class="g-4">
         <BCol
-          v-for="room in paginatedRooms"
-          :key="room.id"
-          cols="12"
-          md="6"
-          lg="4"
+            v-for="room in paginatedRooms"
+            :key="room.id"
+            cols="12"
+            md="6"
+            lg="4"
         >
-          <RoomCard :room="room" />
+          <RoomCard :room="room"/>
         </BCol>
       </BRow>
 
@@ -67,11 +67,11 @@ onMounted(() => {
 
     <template #pagination>
       <BPagination
-        v-if="totalRooms > itemsPerPage"
-        v-model="currentPage"
-        :total-rows="totalRooms"
-        :per-page="itemsPerPage"
-        align="center"
+          v-if="totalRooms > itemsPerPage"
+          v-model="currentPage"
+          :total-rows="totalRooms"
+          :per-page="itemsPerPage"
+          align="center"
       />
     </template>
   </BaseList>
