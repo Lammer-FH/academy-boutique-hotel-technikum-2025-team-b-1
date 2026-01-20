@@ -44,5 +44,10 @@ p {
     background-color: #FFDAD5;
 }
 
+:root {
+    --bs-toast-header-color: #5a3d2e;
+}
 
-
+.toast .progress {
+    --bs-progress-bar-bg: #5a3d2e;
+}

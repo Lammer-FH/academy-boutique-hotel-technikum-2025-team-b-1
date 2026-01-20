@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import '@/assets/styles/main.css'
 

@@ -5,17 +5,17 @@ import { BContainer, BCardTitle, BCardText, BRow, BCol } from "bootstrap-vue-nex
 <template>
   <BContainer fluid id="footer" class="text-center">
     <BCardTitle class="fw-bold mb-3">Kontakt</BCardTitle>
-
-    <BCardText>
-      <ul class="list-unstyled">
-        <li>Boutique Hotel Technikum</li>
-        <li>Höchstädtplatz 6</li>
-        <li>1200 Wien</li>
-        <li>Tel: +43 123 45678</li>
-        <li>E-Mail: info@hotel-technikum.at</li>
-      </ul>
-    </BCardText>
-
+    <section id="contact">
+      <b-card-text>
+        <ul class="list-unstyled">
+          <li>Boutique Hotel Technikum</li>
+          <li>Höchstädtplatz 6</li>
+          <li>1200 Wien</li>
+          <li>Tel: +43 123 45678</li>
+          <li>E-Mail: info@hotel-technikum.at</li>
+        </ul>
+      </b-card-text>
+    </section>
     <BRow id="footerLinks" class="mt-3 justify-content-center">
       <BCol cols="auto">
         <RouterLink class="footer-link" :to="{ name: 'impressum' }">Impressum</RouterLink>

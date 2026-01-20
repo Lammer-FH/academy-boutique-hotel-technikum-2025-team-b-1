@@ -8,44 +8,44 @@ import BookingScreen from "@/booking/components/BookingScreen.vue";
 import LoginPage from "@/auth/pages/LoginPage.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'landingPage',
-      component: LandingPage,
-    },
-    {
-      path: '/impressum',
-      name: 'impressum',
-      component: Impressum,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-    },
-    {
-      path: '/zimmer',
-      name: 'rooms',
-      component: RoomOverview,
-    },
-    {
-      path: '/zimmer/:id',
-      name: 'room',
-      component: RoomDetails,
-    },
-    {
-      path: "/zimmer/:id/buchen",
-      name: "booking",
-      component: BookingScreen,
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: LoginPage,
-    }
-  ],
-})
 
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+        {
+            path: '/',
+            name: 'landingPage',
+            component: LandingPage,
+        },
+        {
+            path: '/impressum',
+            name: 'impressum',
+            component: Impressum,
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: About,
+        },
+        {
+            path: '/zimmer',
+            name: 'rooms',
+            component: RoomOverview,
+        },
+        {
+            path: '/zimmer/:id',
+            name: 'room',
+            component: RoomDetails,
+        },
+        {
+            path: "/zimmer/:id/buchen",
+            name: "booking",
+            component: BookingScreen,
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: LoginPage,
+        }
+    ],
+})
 export default router

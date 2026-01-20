@@ -1,21 +1,25 @@
 <script setup>
 import { storeToRefs } from "pinia";
-import { BButton } from "bootstrap-vue-next";
+import { BButton, BSpinner } from "bootstrap-vue-next";
 import { useUserStore } from "@/stores/userStore";
+import { useToast } from 'bootstrap-vue-next'
 
+const { create: showToast } = useToast()
 const userStore = useUserStore();
-const { isLoggedIn, user } = storeToRefs(userStore);
+const { isLoggedIn, isLoading, user } = storeToRefs(userStore);
 
 const links = [
   { text: 'Zimmer', to: { name: 'rooms' } },
-  { text: 'Restaurant', href: '#restaurant' },
-  { text: 'Spa', href: '#spa' },
   { text: 'Über uns', to: { name: 'about' } },
-  { text: 'Kontakt', href: '#contact' },
 ];
 
 function handleLogout() {
   userStore.logout();
+  const duration = 5_000;
+  showToast({
+    title: 'Sie wurden erfolgreich ausgeloggt!',
+    modelValue: duration,
+  });
 }
 </script>
 
@@ -55,25 +59,29 @@ function handleLogout() {
               {{ link.text }}
             </a>
           </li>
+          <a class="nav-link" href="#contact">Kontakt</a>
         </ul>
 
-        <div v-if="isLoggedIn" class="d-flex align-items-center ms-lg-3">
-          <span class="user-greeting me-2">
-            Hallo, {{ user?.firstname || 'Gast' }}
-          </span>
-          <BButton 
-            class="auth-button"
-            @click="handleLogout"
-          >
-            Abmelden
-          </BButton>
-        </div>
+        <BSpinner v-if="isLoading" small label="Einloggen..." />
+        <template v-else>
+          <div v-if="isLoggedIn" class="d-flex align-items-center ms-lg-3">
+            <span class="user-greeting me-2">
+              Hallo, {{ user.firstname }}
+            </span>
+            <BButton 
+              class="auth-button"
+              @click="handleLogout"
+            >
+              Abmelden
+            </BButton>
+          </div>
 
-        <RouterLink v-else :to="{ name: 'login' }" class="ms-lg-3">
-          <BButton class="auth-button">
-            Anmelden
-          </BButton>
-        </RouterLink>
+          <RouterLink v-else :to="{ name: 'login' }" class="ms-lg-3">
+            <BButton class="auth-button">
+              Anmelden
+            </BButton>
+          </RouterLink>
+        </template>
       </div>
     </div>
   </nav>
