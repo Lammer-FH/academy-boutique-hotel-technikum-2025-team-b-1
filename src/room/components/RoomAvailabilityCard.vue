@@ -35,6 +35,10 @@ const combinedError = computed(
     () => validationError.value || availabilityError.value
 );
 
+const today = computed(() => {
+  return new Date().toISOString().split("T")[0];
+});
+
 function goToBooking() {
   if (!availabilityFilter.value.arrivalDate || !availabilityFilter.value.departureDate) return;
   router.push({
@@ -61,6 +65,7 @@ function goToBooking() {
       id="arrival-date"
       type="date"
       class="form-control mb-2"
+      :min="today"
       v-model="availabilityFilter.arrivalDate"
       :disabled="store.isCheckingAvailability"
     />
@@ -70,6 +75,7 @@ function goToBooking() {
       id="departure-date"
       type="date"
       class="form-control mb-3"
+      :min="today"
       v-model="availabilityFilter.departureDate"
       :disabled="store.isCheckingAvailability"
     />

@@ -53,7 +53,7 @@ import { BContainer, BCardTitle, BCardText, BRow, BCol } from "bootstrap-vue-nex
 
 .footer-link,
 .footer-link:visited {
-  color: #5a3d2e;
+  color:
 }
 
 .footer-link:hover {

@@ -1,12 +1,5 @@
 <script setup>
-import {
-  BForm,
-  BFormGroup,
-  BFormInput,
-  BButton,
-  BAlert,
-  BSpinner
-} from "bootstrap-vue-next";
+import {BAlert, BButton, BForm, BFormGroup, BFormInput, BSpinner} from "bootstrap-vue-next";
 import {storeToRefs} from "pinia";
 import {useRegistrationStore} from "@/stores/registrationStore";
 import {ref} from "vue";
@@ -24,8 +17,8 @@ const {
   lastname,
   username,
   password,
+  passwordConfirm,
   email,
-  emailConfirm,
   validationErrors,
   errorMessages,
 } = storeToRefs(registrationStore)
@@ -126,6 +119,26 @@ async function onSubmit() {
         </small>
       </BFormGroup>
       <BFormGroup
+          label="Passwort bestätigen"
+          label-for="password-confirm"
+          :state="validationErrors.passwordConfirm ? false : null"
+          class="mb-3"
+      >
+        <div class="input-group">
+          <BFormInput
+              id="password-confirm"
+              :type="showPassword ? 'text' : 'password'"
+              v-model="passwordConfirm"
+              :state="validationErrors.passwordConfirm ? false : null"
+              required
+              maxLength="20"
+          />
+        </div>
+        <small v-if="validationErrors.passwordConfirm" class="text-danger">
+          {{ validationErrors.passwordConfirm }}
+        </small>
+      </BFormGroup>
+      <BFormGroup
           label="E-Mail-Adresse"
           label-for="registration-email"
           :state="validationErrors.email ? false : null"
@@ -141,24 +154,6 @@ async function onSubmit() {
         />
         <small v-if="validationErrors.email" class="text-danger">
           {{ validationErrors.email }}
-        </small>
-      </BFormGroup>
-      <BFormGroup
-          label="E-Mail-Adresse bestätigen"
-          label-for="registration-email-confirm"
-          :state="validationErrors.emailConfirm ? false : null"
-          class="mb-3"
-      >
-        <BFormInput
-            id="registration-email-confirm"
-            type="email"
-            v-model="emailConfirm"
-            :state="validationErrors.emailConfirm ? false : null"
-            required
-            maxLength="30"
-        />
-        <small v-if="validationErrors.emailConfirm" class="text-danger">
-          {{ validationErrors.emailConfirm }}
         </small>
       </BFormGroup>
       <div class="d-flex justify-content-center mb-3">

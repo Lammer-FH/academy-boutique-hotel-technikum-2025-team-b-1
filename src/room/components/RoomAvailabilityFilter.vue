@@ -56,6 +56,10 @@ const clearFilter = () => {
   roomStore.clearAvailabilityFilter();
 };
 
+const today = computed(() => {
+  return new Date().toISOString().split("T")[0];
+});
+
 watch(
     availabilityFilter,
     (next) => {
@@ -75,6 +79,7 @@ watch(
             id="filter-arrival"
             type="date"
             v-model="arrival"
+            :min="today"
             :disabled="isCheckingAvailability"
             class="form-control"
         />
@@ -86,6 +91,7 @@ watch(
             id="filter-departure"
             type="date"
             v-model="departure"
+            :min="today"
             :disabled="isCheckingAvailability"
             class="form-control"
         />
@@ -137,3 +143,5 @@ watch(
   color: black;
 }
 </style>
+
+

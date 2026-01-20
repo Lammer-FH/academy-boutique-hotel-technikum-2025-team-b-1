@@ -10,9 +10,9 @@ export const useRegistrationStore = defineStore('registration', () => {
     const firstname = ref("");
     const lastname = ref("");
     const email = ref("")
-    const emailConfirm = ref("");
     const username = ref("");
     const password = ref("");
+    const passwordConfirm = ref("");
     const validationErrors = ref({});
     const errorMessages = ref(null);
     const isSubmitting = ref(false);
@@ -36,10 +36,10 @@ export const useRegistrationStore = defineStore('registration', () => {
             errors.email = "E-Mail ist erforderlich"
         }
 
-        if (!emailConfirm.value.trim()) {
-            errors.emailConfirm = "Bitte bestätigen Sie Ihre E-Mail-Adresse."
-        } else if (emailConfirm.value !== email.value) {
-            errors.emailConfirm = "Die E-Mail-Adresse stimmt nicht überein."
+        if (!passwordConfirm.value.trim()) {
+            errors.passwordConfirm = "Bitte geben Sie das Passwort zur Überprüfung nochmal ein."
+        } else if (passwordConfirm.value !== password.value) {
+            errors.passwordConfirm = "Das Passwort stimmt nicht überein."
         }
 
         if (!username.value.trim()) {
@@ -59,8 +59,8 @@ export const useRegistrationStore = defineStore('registration', () => {
         firstname.value = "";
         lastname.value = "";
         email.value = "";
-        emailConfirm.value = "";
         username.value = "";
+        passwordConfirm.value = "";
         password.value = "";
         validationErrors.value = {};
         errorMessages.value = null;
@@ -94,7 +94,7 @@ export const useRegistrationStore = defineStore('registration', () => {
             return true;
         } catch (error) {
             successValue.value = false;
-            errorMessages.value = "Es ist ein Fehler bei der Buchung aufgetreten.";
+            errorMessages.value = "Es ist ein Fehler bei der Registrierung aufgetreten.";
             console.log(error)
             return false;
         } finally {
@@ -106,7 +106,7 @@ export const useRegistrationStore = defineStore('registration', () => {
         firstname,
         lastname,
         email,
-        emailConfirm,
+        passwordConfirm,
         username,
         password,
         validationErrors,
