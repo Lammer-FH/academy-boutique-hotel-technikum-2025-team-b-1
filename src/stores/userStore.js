@@ -8,6 +8,8 @@ export const useUserStore = defineStore("userStore", () => {
     const isLoading = ref(false);
     const error = ref(null);
 
+    const isRestoring = ref(true);
+
     const isLoggedIn = computed(() => Boolean(token.value) && Boolean(user.value));
 
     async function login(email, password) {
@@ -70,11 +72,20 @@ export const useUserStore = defineStore("userStore", () => {
         localStorage.removeItem("auth_token");
     }
 
-    function restoreSession() {
-        const storedToken = localStorage.getItem("auth_token");
-        if (storedToken) {
+    async function restoreSession() {
+        isRestoring.value = true;
+        try {
+            const storedToken = localStorage.getItem("auth_token");
+            if (!storedToken) {
+                token.value = null;
+                user.value = null;
+                return;
+            }
+
             token.value = storedToken;
-            fetchUser();
+            await fetchUser();
+        } finally {
+            isRestoring.value = false;
         }
     }
 
@@ -90,6 +101,7 @@ export const useUserStore = defineStore("userStore", () => {
         isLoggedIn,
         login,
         logout,
+        isRestoring,
         fetchUser,
         restoreSession,
         clearError,

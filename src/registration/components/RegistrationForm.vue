@@ -3,6 +3,7 @@ import {BAlert, BButton, BForm, BFormGroup, BFormInput, BSpinner} from "bootstra
 import {storeToRefs} from "pinia";
 import {useRegistrationStore} from "@/stores/registrationStore";
 import {ref} from "vue";
+import {useUserStore} from "../../stores/userStore";
 
 
 const registrationStore = useRegistrationStore();

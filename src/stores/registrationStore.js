@@ -55,7 +55,7 @@ export const useRegistrationStore = defineStore('registration', () => {
     }
 
     // This function resets all values in the registration formular.
-    function reset() {
+    function resetForm() {
         firstname.value = "";
         lastname.value = "";
         email.value = "";
@@ -65,7 +65,6 @@ export const useRegistrationStore = defineStore('registration', () => {
         validationErrors.value = {};
         errorMessages.value = null;
         isSubmitting.value = false;
-        successValue.value = null;
     }
 
     // This function makes an API call. In the first place it calls the validate function to check the values,
@@ -115,7 +114,7 @@ export const useRegistrationStore = defineStore('registration', () => {
         successValue,
         validate,
         register,
-        reset
+        resetForm
     }
 
 })

@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.8",
     "bootstrap-vue-next": "^0.40.8",
     "pinia": "^2.1.6",
+    "pinia-plugin-persistedstate": "^3.2.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
