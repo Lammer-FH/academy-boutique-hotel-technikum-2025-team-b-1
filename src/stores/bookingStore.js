@@ -24,15 +24,21 @@ export const useBookingStore = defineStore("booking", () => {
         const validationErrors = ref({});
         const bookingId = ref(null);
 
-        function start(newRoomId, newArrivalDate, newDepartureDate) {
-            roomId.value = Number(newRoomId) || null;
-            arrivalDate.value = newArrivalDate || "";
-            departureDate.value = newDepartureDate || "";
+    function start(newRoomId, newArrivalDate, newDepartureDate) {
+
+        const isNewBooking = bookingId.value == null;
+
+        if (isNewBooking) {
             step.value = STEPS.start;
             errorMessage.value = null;
-            bookingId.value = null;
-            prefillFromUser();
         }
+
+        roomId.value = Number(newRoomId) || roomId.value;
+        arrivalDate.value = newArrivalDate || arrivalDate.value;
+        departureDate.value = newDepartureDate || departureDate.value;
+
+        prefillFromUser();
+    }
 
     function prefillFromUser() {
         const userStore = useUserStore();

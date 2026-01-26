@@ -251,11 +251,11 @@ onMounted(async () => {
               Bei Fragen zur Buchung oder zur Anreise stehen wir gerne zur Verfügung:
             </p>
             <p class="mb-1">
-              <strong>Telefon:</strong>
+              <strong>Telefon: </strong>
               <a :href="`tel:${HOTEL.phone.replace(/\\s/g, '')}`">{{ HOTEL.phone }}</a>
             </p>
             <p class="mb-0">
-              <strong>E-Mail:</strong>
+              <strong>E-Mail: </strong>
               <a :href="`mailto:${HOTEL.email}`">{{ HOTEL.email }}</a>
             </p>
           </BCardBody>
