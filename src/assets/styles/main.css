@@ -1,0 +1,53 @@
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.9;
+    background-color: #fffaf9;
+    color: #5a3d2e;
+}
+
+h1, h2, h3 {
+    color: #5a3d2e;
+}
+
+button {
+    background-color: #FEF1C8;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f9df95;
+}
+
+.btn {
+    border: none;
+    border-radius: 6px;
+}
+
+p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+#room-price{
+    color:#5a3d2e;
+}
+
+.icon{
+    color: #ffffff;
+    background-color: #FFDAD5;
+}
+
+.room-card{
+    background-color: #FFDAD5;
+}
+
+:root {
+    --bs-toast-header-color: #5a3d2e;
+}
+
+.toast .progress {
+    --bs-progress-bar-bg: #5a3d2e;
+}

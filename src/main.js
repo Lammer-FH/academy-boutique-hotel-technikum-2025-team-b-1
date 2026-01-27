@@ -1,18 +1,24 @@
-import './assets/main.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+import '@/assets/styles/main.css'
 
-import BootstrapVue3 from 'bootstrap-vue-3'
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
-import App from './App.vue'
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate'
+import {createPinia} from 'pinia'
 import router from './router'
+import {createApp} from 'vue'
+import App from './App.vue'
+import {useUserStore} from '@/stores/userStore'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedState)
 
 const app = createApp(App)
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
-app.use(BootstrapVue3)
+
+const userStore = useUserStore()
+await userStore.restoreSession()
 
 app.mount('#app')

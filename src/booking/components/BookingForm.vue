@@ -1,0 +1,191 @@
+<script setup>
+import {BAlert, BButton, BForm, BFormCheckbox, BFormGroup, BFormInput, BModal,} from "bootstrap-vue-next";
+import {storeToRefs} from "pinia";
+import {useBookingStore} from "@/stores/bookingStore";
+import {useRegistrationStore} from "../../stores/registrationStore";
+import {ref, watch} from "vue";
+import RegistrationForm from "../../registration/components/RegistrationForm.vue";
+import {useUserStore} from "../../stores/userStore";
+
+
+const bookingStore = useBookingStore();
+const registrationStore = useRegistrationStore();
+const userStore = useUserStore();
+const {isLoggedIn, isRestoring} = storeToRefs(userStore);
+
+const showRegister = ref(false);
+const {successValue} = storeToRefs(registrationStore);
+const showSuccessModal = ref(false);
+
+watch(successValue, (val) => {
+  if (val === true) {
+    showSuccessModal.value = true;
+  }
+});
+
+const {
+  firstname,
+  lastname,
+  email,
+  emailConfirm,
+  breakfast,
+  validationErrors,
+  errorMessage,
+} = storeToRefs(bookingStore);
+
+const {review} = bookingStore;
+
+function openRegister() {
+  registrationStore.$patch({
+    firstname: firstname.value,
+    lastname: lastname.value,
+    email: email.value,
+    emailConfirm: emailConfirm.value,
+  })
+  showRegister.value = true;
+}
+
+function onSubmit() {
+  review();
+}
+</script>
+<template>
+  <div>
+    <div v-if="isRestoring" class="d-flex justify-content-center">
+      <span>Lade...</span>
+    </div>
+    <div v-else>
+      <h2 class="h5 mb-3">Ihre Daten</h2>
+
+      <BAlert v-if="errorMessage" variant="danger" show class="mb-3">
+        {{ errorMessage }}
+      </BAlert>
+
+      <BForm @submit.prevent="onSubmit" novalidate>
+        <BFormGroup
+            label="Vorname"
+            label-for="booking-firstname"
+            :state="validationErrors.firstname ? false : null"
+            class="mb-3"
+        >
+          <BFormInput
+              id="booking-firstname"
+              v-model="firstname"
+              :state="validationErrors.firstname ? false : null"
+              required
+          />
+          <small v-if="validationErrors.firstname" class="text-danger">
+            {{ validationErrors.firstname }}
+          </small>
+        </BFormGroup>
+
+        <BFormGroup
+            label="Nachname"
+            label-for="booking-lastname"
+            :state="validationErrors.lastname ? false : null"
+            class="mb-3"
+        >
+          <BFormInput
+              id="booking-lastname"
+              v-model="lastname"
+              :state="validationErrors.lastname ? false : null"
+              required
+          />
+          <small v-if="validationErrors.lastname" class="text-danger">
+            {{ validationErrors.lastname }}
+          </small>
+        </BFormGroup>
+
+        <BFormGroup
+            label="E-Mail-Adresse"
+            label-for="booking-email"
+            :state="validationErrors.email ? false : null"
+            class="mb-3"
+        >
+          <BFormInput
+              id="booking-email"
+              type="email"
+              v-model="email"
+              :state="validationErrors.email ? false : null"
+              required
+          />
+          <small v-if="validationErrors.email" class="text-danger">
+            {{ validationErrors.email }}
+          </small>
+        </BFormGroup>
+
+        <BFormGroup
+            label="E-Mail-Adresse bestätigen"
+            label-for="booking-email-confirm"
+            :state="validationErrors.emailConfirm ? false : null"
+            class="mb-3"
+        >
+          <BFormInput
+              id="booking-email-confirm"
+              type="email"
+              v-model="emailConfirm"
+              :state="validationErrors.emailConfirm ? false : null"
+              required
+          />
+          <small v-if="validationErrors.emailConfirm" class="text-danger">
+            {{ validationErrors.emailConfirm }}
+          </small>
+        </BFormGroup>
+
+        <BFormGroup class="mb-3">
+          <BFormCheckbox id="booking-breakfast" v-model="breakfast">
+            Frühstück hinzubuchen
+          </BFormCheckbox>
+        </BFormGroup>
+
+        <div v-if="validationErrors.date" class="text-danger mb-2">
+          {{ validationErrors.date }}
+        </div>
+        <div v-if="validationErrors.roomId" class="text-danger mb-2">
+          {{ validationErrors.roomId }}
+        </div>
+
+        <BModal v-model="showRegister" title="Kunden-Registrierung" no-footer no-close-on-backdrop
+                no-close-on-esc>
+          <RegistrationForm @success="showRegister = false; showSuccessModal = true;"></RegistrationForm>
+        </BModal>
+        <BFormGroup v-if="isLoggedIn">
+          <div class="d-flex justify-content-center">
+            <BButton type="submit" variant="primary">Weiter</BButton>
+          </div>
+        </BFormGroup>
+
+        <BFormGroup v-else-if="registrationStore.successValue">
+          <div class="d-flex justify-content-center">
+            <BButton type="submit" variant="primary">Weiter</BButton>
+          </div>
+        </BFormGroup>
+
+        <BFormGroup v-else>
+          <div class="d-flex justify-content-between">
+            <BButton type="button" id="registerButton" @click="openRegister">
+              Als Kunde registrieren
+            </BButton>
+            <BButton type="submit" variant="primary">
+              Weiter als Gast
+            </BButton>
+          </div>
+        </BFormGroup>
+      </BForm>
+      <BModal v-model="showSuccessModal"
+              title="Registrierung erfolgreich"
+              hide-footer
+              @hidden="registrationStore.resetForm()">
+        <p class="mb-0">Sie wurden erfolgreich registriert ✅</p>
+      </BModal>
+    </div>
+  </div>
+</template>
+
+<style>
+#registerButton {
+  background-color: #FFDAD5;
+  color: black;
+}
+
+</style>
